@@ -16,7 +16,7 @@ File & Description\\
 
 \subsection{Interface}
 
-The program is run as \texttt{python3 sat.py instance.cnf}, with the options \texttt{-{}-mode dpll} (the default), \texttt{-{}-mode optimized}, and \texttt{-{}-output-model}. The mode \texttt{dpll} is the solver of Question~2. The mode \texttt{optimized} is described below. Both read a DIMACS file, print the same format, and give the same status on every instance.
+The program is run as \texttt{python3 sat.py instance.cnf}, with the options \texttt{-{}-mode dpll} (the default), \texttt{-{}-mode optimized}, and \texttt{-{}-output-model}. The mode \texttt{dpll} is the solver of \hyperref[sec:q2]{Question~2}. The mode \texttt{optimized} is described below. Both read a DIMACS file, print the same format, and give the same status on every instance.
 \begin{itemize}
 \item For a satisfiable formula the program prints \texttt{s SATISFIABLE}, and for an unsatisfiable one \texttt{s UNSATISFIABLE}.
 \item With \texttt{-{}-output-model} and a satisfiable formula, it prints a second line that starts with \texttt{v}, lists every variable from 1 to $V$ with its sign, positive for true and negative for false, and ends with \texttt{0}. A variable that the search left without a value is given the value false. No model is printed for an unsatisfiable formula.
@@ -25,12 +25,13 @@ The program is run as \texttt{python3 sat.py instance.cnf}, with the options \te
 
 \subsection{The optimized mode}
 
-The optimized mode is the algorithm DPLL$_H$ of Question~4 with the heuristic H5d, the dynamic version of the most frequent literal in the smallest clauses. We chose it from the measurements of Question~5: it solved the most instances, 47 of 48, and the number of instances solved is the first criterion of the final ranking. H5d is deterministic, so a run always gives the same result. This is the only difference with the mode \texttt{dpll}: the propagation and the data structures are those of Question~2, and the optimized mode is not faster than it by construction. The heuristic is changed by editing one constant, \texttt{OPTIMIZED\_HEURISTIC}.
+The optimized mode is the algorithm DPLL$_H$ of \hyperref[sec:q4]{Question~4}, that is Procedure~\ref{proc:q2-dpll} in which line 6 chooses the literal according to the heuristic H5d, the dynamic version of the most frequent literal in the smallest clauses. We chose it from the measurements of \hyperref[sec:q5]{Question~5}: it solved the most instances, 47 of 48, and the number of instances solved is the first criterion of the final ranking. H5d is deterministic, so a run always gives the same result. This is the only difference with the mode \texttt{dpll}: the propagation and the data structures are those of \hyperref[sec:q2]{Question~2}, and the optimized mode is not faster than it by construction. The heuristic is changed by editing one constant, \texttt{OPTIMIZED\_HEURISTIC}.
 
 \subsection{Checks}
 
-Both modes were run through the command line on the 41 public instances, one run each, with a limit of 60 s, eight at a time. An answer is correct, as in the competition, if its status is the expected one and, for a satisfiable formula, if the model satisfies every clause.
-\begin{center}
+Both modes were run through the command line on the 41 public instances, one run each, with a limit of 60 s, eight at a time, on the machine described in Section~\ref{sec:setup}. An answer is correct, as in the competition, if its status is the expected one and, for a satisfiable formula, if the model satisfies every clause.
+\begin{table}[H]
+\centering
 \begin{tabular}{@{}lrr@{}}
 \toprule
 Mode & Correct answers (of 41) & Total time of these answers\\
@@ -39,5 +40,7 @@ Mode & Correct answers (of 41) & Total time of these answers\\
 \texttt{optimized} & 40 & 134.7 s\\
 \bottomrule
 \end{tabular}
-\end{center}
-No answer was wrong in either mode. The mode \texttt{dpll} did not solve \texttt{public-03} and \texttt{public-27} within 60 s. The mode \texttt{optimized} solved \texttt{public-27}, in 40.7 s, but not \texttt{public-03}, which no heuristic solved in Question~5. On the 39 instances solved by both, the optimized mode takes 94.0 s against 51.8 s, mostly on \texttt{public-06} (35.1 s against 0.6 s) and \texttt{public-12} (25.9 s against 12.4 s), which the mode \texttt{dpll} solved quickly in this run thanks to its random choices. These times depend on those choices, as seen in Question~2, so the comparison is indicative; the mode \texttt{optimized} is reproducible. The ranking counts the instances solved first, and the total time only second, which is the reason for the choice of H5d.
+\caption{Answers of the two modes on the 41 public instances: number of correct answers and total time of these answers.}
+\label{tab:q6-checks}
+\end{table}
+Table~\ref{tab:q6-checks} gives the results. No answer was wrong in either mode. The mode \texttt{dpll} did not solve \texttt{public-03} and \texttt{public-27} within 60 s. The mode \texttt{optimized} solved \texttt{public-27}, in 40.7 s, but not \texttt{public-03}, which no heuristic solved in \hyperref[sec:q5]{Question~5}. On the 39 instances solved by both, the optimized mode takes 94.0 s against 51.8 s, mostly on \texttt{public-06} (35.1 s against 0.6 s) and \texttt{public-12} (25.9 s against 12.4 s), which the mode \texttt{dpll} solved quickly in this run thanks to its random choices. These times depend on those choices, as seen in \hyperref[sec:q2]{Question~2}, so the comparison is indicative; the mode \texttt{optimized} is reproducible. The ranking counts the instances solved first, and the total time only second, which is the reason for the choice of H5d.

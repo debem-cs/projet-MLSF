@@ -54,8 +54,9 @@ The first term skips the $i-1$ preceding rows of six cells; adding $j$ selects t
 \end{array}.
 \]
 
-The following table lists every variable belonging to each region. It is equivalent to the colored grid because the preceding formula converts every listed ID back to a unique cell.
-\begin{center}
+Table~\ref{tab:q1-regions} lists every variable belonging to each region. It is equivalent to the colored grid because the preceding formula converts every listed ID back to a unique cell.
+\begin{table}[H]
+\centering
 \begin{tabular}{@{}lp{9cm}r@{}}
 \toprule
 Region & Cell-variable IDs & $s_r=|R_r|$\\
@@ -68,7 +69,9 @@ E (mauve) & 25, 26, 27, 28, 31, 32, 33 & 7\\
 F (yellow) & 34, 35, 36 & 3\\
 \bottomrule
 \end{tabular}
-\end{center}
+\caption{Variable numbers of the cells of each region of the board of Figure~\ref{fig:meowdoku-board}, and size $s_r$ of each region.}
+\label{tab:q1-regions}
+\end{table}
 
 The six cats in Figure~\ref{fig:meowdoku-board} occupy $(1,2)$, $(2,4)$, $(3,6)$, $(4,3)$, $(5,1)$, and $(6,5)$, with IDs $2$, $10$, $18$, $21$, $25$, and $35$. The corresponding satisfying assignment sets exactly
 \[
@@ -156,9 +159,9 @@ For a general $N\times M$ board, rows and columns are constrained by \emph{at mo
 
 \subsection{From a grid text file to a CNF file}
 
-The converter (\texttt{meowdoku\_to\_dimacs.py}) turns a grid file into a DIMACS CNF file in three phases: it reads and checks the grid, it generates the clauses of the four rules, and it writes them out. The procedure below uses the notation of the previous sections: $\operatorname{reg}(i,j)$ is the region label of cell $(i,j)$, and a clause is written as a set of DIMACS literals, that is, nonzero integers whose sign is the polarity.
+The converter (\texttt{meowdoku\_to\_dimacs.py}) turns a grid file into a DIMACS CNF file in three phases: it reads and checks the grid, it generates the clauses of the four rules, and it writes them out. Procedure~\ref{proc:q1-convert} uses the notation of the previous sections: $\operatorname{reg}(i,j)$ is the region label of cell $(i,j)$, and a clause is written as a set of DIMACS literals, that is, nonzero integers whose sign is the polarity.
 
-\begin{pseudo}{Procedure: grid file to DIMACS CNF}
+\begin{pseudo}{Grid file to DIMACS CNF}{proc:q1-convert}
 \pinfo{\textbf{Input:} a grid file. \textbf{Output:} a DIMACS CNF file.}
 \pline{0}{ignore blank lines and comment lines (those starting with \texttt{c})}
 \pline{0}{read $N$ and $M$ from the line \texttt{GRID $N$ $M$} and the region names from the line \texttt{ZONES}}
@@ -179,10 +182,11 @@ The converter (\texttt{meowdoku\_to\_dimacs.py}) turns a grid file into a DIMACS
 \pline{0}{\kw{for} each clause of $F$, in order: write its literals separated by spaces, followed by \texttt{0}}
 \end{pseudo}
 
-Lines 1--4 read and validate the input. Reading ignores any line that begins with \texttt{c}, as the DIMACS and grid formats prescribe, so a region name must not be a lowercase \texttt{c}. The check on line 4 ensures that every declared region has at least one cell and that no cell has an undeclared label. The procedure does not require $K=N$ or $K=M$, nor that regions be connected: the encoding uses only the fact that the regions partition the cells. Line 5 gives every cell its variable number, so the formula has $V=NM$ variables. Lines 6--15 emit the clauses of the four rules in the order rows, columns, regions, diagonals. Lines 16--17 write the header, where $V=NM$ even if a variable occurs in few clauses, and then the clauses.
+In Procedure~\ref{proc:q1-convert}, lines 1--4 read and validate the input. Reading ignores any line that begins with \texttt{c}, as the DIMACS and grid formats prescribe, so a region name must not be a lowercase \texttt{c}. The check on line 4 ensures that every declared region has at least one cell and that no cell has an undeclared label. The procedure does not require $K=N$ or $K=M$, nor that regions be connected: the encoding uses only the fact that the regions partition the cells. Line 5 gives every cell its variable number, so the formula has $V=NM$ variables. Lines 6--15 emit the clauses of the four rules in the order rows, columns, regions, diagonals. Lines 16--17 write the header, where $V=NM$ even if a variable occurs in few clauses, and then the clauses.
 
-The number of clauses emitted by each rule, with its value for the board of Figure~\ref{fig:meowdoku-board}, whose region sizes are $(12,5,2,7,7,3)$, is the following.
-\begin{center}
+Table~\ref{tab:q1-counts} gives the number of clauses emitted by each rule.
+\begin{table}[H]
+\centering
 \begin{tabular}{@{}lll@{}}
 \toprule
 Rule & Number of clauses & Figure~\ref{fig:meowdoku-board}\\
@@ -195,7 +199,9 @@ Diagonals & $2(N-1)(M-1)$ & $2\cdot5\cdot5=50$\\
 Total $C$ & & $358$\\
 \bottomrule
 \end{tabular}
-\end{center}
+\caption{Number of clauses emitted by each rule, in general and for the board of Figure~\ref{fig:meowdoku-board}, whose region sizes are $(12,5,2,7,7,3)$.}
+\label{tab:q1-counts}
+\end{table}
 No clause is added for horizontal or vertical contact: two cells sharing an edge lie in the same row or the same column, so the first two loops already forbid them. Clauses are not deduplicated. For example $\{-2,-3\}$ is produced by the row loop and again by the loop of region A, since cells 2 and 3 share both a row and a region; the duplicate is harmless. The output size is dominated by the pairwise clauses, $O(NM^2+MN^2+\sum_r s_r^2)$: a generated $50\times50$ board (seed 1) already gives 196\,650 clauses. For the board of Figure~\ref{fig:meowdoku-board}, the file starts with
 \begin{verbatim}
 p cnf 36 358
@@ -208,9 +214,9 @@ p cnf 36 358
 The generator (\texttt{generate\_grid.py}) handles the square case $N=M=K=n$ allowed by the assignment. Its method is to \emph{plant} a solution first and to draw the regions afterwards, so that the board is satisfiable by construction. It takes the size $n$ and an optional seed for the pseudo-random generator, which makes a run reproducible.
 
 \paragraph{Stage 1: planting the cats.}
-The planted solution is a sequence $c_1,\ldots,c_n$, where $c_i$ is the column of the cat in row $i$. It must satisfy two conditions: the columns are pairwise distinct, so there is one cat per column, and $|c_i-c_{i+1}|\ge2$, so cats in consecutive rows touch neither vertically nor diagonally. One cat per row holds by construction, and cats two or more rows apart cannot touch. The sequence is found by randomized backtracking over the rows.
+The planted solution is a sequence $c_1,\ldots,c_n$, where $c_i$ is the column of the cat in row $i$. It must satisfy two conditions: the columns are pairwise distinct, so there is one cat per column, and $|c_i-c_{i+1}|\ge2$, so cats in consecutive rows touch neither vertically nor diagonally. One cat per row holds by construction, and cats two or more rows apart cannot touch. The sequence is found by randomized backtracking over the rows (Procedure~\ref{proc:q1-place}).
 
-\begin{pseudo}{Procedure PlaceCats($i$): choose the cat columns of rows $i,\ldots,n$}
+\begin{pseudo}{PlaceCats($i$): choose the cat columns of rows $i,\ldots,n$}{proc:q1-place}
 \pline{0}{\kw{if} $i>n$ \kw{then return} success}
 \pline{0}{$L\leftarrow$ the columns $c\in\{1,\ldots,n\}$ not used by rows $1,\ldots,i-1$, with $|c-c_{i-1}|\ge2$ when $i>1$}
 \pline{0}{shuffle $L$ randomly}
@@ -223,9 +229,9 @@ The planted solution is a sequence $c_1,\ldots,c_n$, where $c_i$ is the column o
 The case $n=1$ is solved by $c_1=1$. For $n=2$ and $n=3$ no valid sequence exists, and the generator reports an error. For $n\ge4$ a valid sequence always exists, for example the even columns in increasing order followed by the odd ones ($2,4,1,3$ for $n=4$), so the search always succeeds. In our tests it takes a few milliseconds even for $n=50$.
 
 \paragraph{Stage 2: growing the regions.}
-The $n$ regions are named $R_1,\ldots,R_n$, region $R_i$ being the one of the cat in row $i$. The regions are grown from the cats by a multi-source breadth-first search.
+The $n$ regions are named $R_1,\ldots,R_n$, region $R_i$ being the one of the cat in row $i$. The regions are grown from the cats by a multi-source breadth-first search (Procedure~\ref{proc:q1-grow}).
 
-\begin{pseudo}{Procedure: grow the regions from the planted cats}
+\begin{pseudo}{Growing the regions from the planted cats}{proc:q1-grow}
 \pline{0}{\kw{for} $i=1,\ldots,n$: $\operatorname{reg}(i,c_i)\leftarrow R_i$ \hfill (the cats are the seeds)}
 \pline{0}{$Q\leftarrow$ queue containing the cells $(i,c_i)$ in random order}
 \pline{0}{\kw{while} $Q$ is not empty}

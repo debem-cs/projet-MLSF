@@ -6,43 +6,46 @@
 File & Description\\
 \midrule
 \texttt{heuristics.py} & The branching heuristics: \texttt{first\_variable} (H1), \texttt{literal\_scores}, \texttt{static} and \texttt{dynamic}, which build the static and dynamic versions of H3, H5 and H7, and \texttt{FACTORIES}, which names the seven configurations.\\
-\texttt{sat.py} & \texttt{dpll\_h}, the algorithm DPLL$_H$ of the assignment with counters, \texttt{Stats} and \texttt{make\_heuristic}. The random choice $H_0$ is \texttt{choose\_literal}, from Question~2.\\
+\texttt{sat.py} & \texttt{dpll\_h}, the algorithm DPLL$_H$ of the assignment with counters, \texttt{Stats} and \texttt{make\_heuristic}. The random choice $H_0$ is \texttt{choose\_literal}, from \hyperref[sec:q2]{Question~2}.\\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \subsection{The heuristics}
 
-Algorithm~3 of the assignment is Algorithm~2 in which the random choice is replaced by a heuristic $H$ that chooses a variable and the value to try first. The function \texttt{dpll\_h} is this algorithm. We implemented four heuristics, H1, H3, H5 and H7, which give seven configurations once the static and dynamic versions are counted, and we keep $H_0$, the random choice of Question~2, as the reference. For a formula $F$ and a literal $l$, $\operatorname{occ}(l,F)$ is the number of occurrences of $l$ in $F$, $\operatorname{occ}_k(l,F)$ the number of occurrences in the clauses of size $k$, and $k_{\min}$ the size of the smallest clause of $F$. A heuristic that chooses a literal $l$ tries $l\leftarrow1$ first: the variable $p$ with value 1 if $l=p$, and with value 0 if $l=\neg p$.
-\begin{center}
+Algorithm~3 of the assignment is Algorithm~2 in which the random choice is replaced by a heuristic $H$ that chooses a variable and the value to try first. The function \texttt{dpll\_h} is this algorithm: it is Procedure~\ref{proc:q2-dpll}, in which line 6 chooses the literal according to the heuristic $H$. We implemented four heuristics, H1, H3, H5 and H7, which give seven configurations once the static and dynamic versions are counted, and we keep $H_0$, the random choice of \hyperref[sec:q2]{Question~2}, as the reference. For a formula $F$ and a literal $l$, $\operatorname{occ}(l,F)$ is the number of occurrences of $l$ in $F$, $\operatorname{occ}_k(l,F)$ the number of occurrences in the clauses of size $k$, and $k_{\min}$ the size of the smallest clause of $F$. A heuristic that chooses a literal $l$ tries $l\leftarrow1$ first: the variable $p$ with value 1 if $l=p$, and with value 0 if $l=\neg p$.
+\begin{table}[H]
+\centering
 \begin{tabular}{@{}lll@{}}
 \toprule
-Heuristic & Literal chosen & Versions\\
+Heuristic & Score $s(l)$ of a literal $l$ & Versions\\
 \midrule
-H1 & the variable of smallest number in $F$, with value 1 & H1\\
-H3 & maximizing $\operatorname{occ}(l,F)$ & H3s, H3d\\
-H5 & maximizing $\operatorname{occ}_{k_{\min}}(l,F)$ & H5s, H5d\\
-H7 & maximizing $\sum_{k}\operatorname{occ}_k(l,F)\,2^{-k}$ & H7s, H7d\\
+H1 & no score: the variable of smallest number in $F$, with value 1 & H1\\
+H3 & $\operatorname{occ}(l,F)$ & H3s, H3d\\
+H5 & $\operatorname{occ}_{k_{\min}}(l,F)$ & H5s, H5d\\
+H7 & $\sum_{k}\operatorname{occ}_k(l,F)\,2^{-k}$ & H7s, H7d\\
 \bottomrule
 \end{tabular}
-\end{center}
-A tie is broken in favor of the smaller variable number, then of the positive literal. The static version computes the scores once, on the initial formula $F_0$, and ranks all its literals. The dynamic version computes them again on the current formula at each choice. Both return a literal whose variable occurs in the current formula.
+\caption{The four heuristics: the score of a literal, and the versions of each heuristic.}
+\label{tab:q4-heuristics}
+\end{table}
+For H3, H5 and H7, the literal chosen is the one with the largest score $s(l)$ of Table~\ref{tab:q4-heuristics}. A tie is broken in favor of the smaller variable number, then of the positive literal. The static version (Procedure~\ref{proc:q4-static}) computes the scores once, on the initial formula $F_0$, and ranks all its literals. The dynamic version (Procedure~\ref{proc:q4-dynamic}) computes them again on the current formula at each choice. Both return a literal whose variable occurs in the current formula.
 
-\begin{pseudo}{Dynamic choice: H3d, H5d and H7d on the formula $F$}
-\pline{0}{$s\leftarrow$ the score of every literal of $F$, as defined in the table}
+\begin{pseudo}{Dynamic choice: H3d, H5d and H7d on the formula $F$}{proc:q4-dynamic}
+\pline{0}{$s\leftarrow$ the score of every literal of $F$, as defined in Table~\ref{tab:q4-heuristics}}
 \pline{0}{\kw{return} the literal with the best score}
 \end{pseudo}
 
-\begin{pseudo}{Static choice: H3s, H5s and H7s}
+\begin{pseudo}{Static choice: H3s, H5s and H7s}{proc:q4-static}
 \pinfo{\textbf{Before the search, on the initial formula $F_0$:}}
-\pline{0}{$s\leftarrow$ the score of every literal of $F_0$, as defined in the table}
+\pline{0}{$s\leftarrow$ the score of every literal of $F_0$, as defined in Table~\ref{tab:q4-heuristics}}
 \pline{0}{$R\leftarrow$ the literals of $F_0$, from the best score to the worst}
 \pinfo{\textbf{At each choice, on the current formula $F$:}}
 \pline{0}{\kw{return} the first literal of $R$ whose variable occurs in $F$}
 \end{pseudo}
 
-\paragraph{Why these choices.} The assignment asks for at least four heuristics, one that selects a literal, one that uses clause sizes and one that is dynamic. H3 is the simplest literal heuristic. H5 and H7 use the sizes of the clauses: a short clause is the one that becomes a unit clause first, and unit propagation is the cheapest way to cut the search, so H5 looks only at the shortest clauses and H7 weights each clause by $2^{-k}$, which favors the short ones without ignoring the others. H1 costs nothing to compute, which shows what a computed heuristic must gain over a trivial rule. Having both versions of H3, H5 and H7 allows us to measure, in Question~5, what the recomputation brings and what it costs.
+\paragraph{Why these choices.} The assignment asks for at least four heuristics, one that selects a literal, one that uses clause sizes and one that is dynamic. H3 is the simplest literal heuristic. H5 and H7 use the sizes of the clauses: a short clause is the one that becomes a unit clause first, and unit propagation is the cheapest way to cut the search, so H5 looks only at the shortest clauses and H7 weights each clause by $2^{-k}$, which favors the short ones without ignoring the others. H1 costs nothing to compute, which shows what a computed heuristic must gain over a trivial rule. Having both versions of H3, H5 and H7 allows us to measure, in \hyperref[sec:q5]{Question~5}, what the recomputation brings and what it costs.
 
 \subsection{Validation}
 
-Each of the eight configurations was run on the 11 small instances of the teachers, which include the edge cases, that is 88 runs, and on the 30 benchmark instances and the 18 Meowdoku formulas of Question~5. Every answer had the expected status, and every model satisfied all the clauses of the formula; no answer was wrong. These are the same test data as in Question~2, so the heuristics agree with the solver of Question~2 on all of them. An instance that is not solved within the limit of 60 s gives no answer, and Question~5 counts it as unsolved.
+Each of the eight configurations was run on the 11 small instances of the teachers, which include the edge cases, that is 88 runs, and on the 30 benchmark instances and the 18 Meowdoku formulas of \hyperref[sec:q5]{Question~5}. Every answer had the expected status, and every model satisfied all the clauses of the formula; no answer was wrong. These are the same test data as in \hyperref[sec:q2]{Question~2}, so the heuristics agree with the solver of \hyperref[sec:q2]{Question~2} on all of them. An instance that is not solved within the limit of 60 s gives no answer, and \hyperref[sec:q5]{Question~5} counts it as unsolved.

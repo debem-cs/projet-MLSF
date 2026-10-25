@@ -1,0 +1,30 @@
+\clearpage
+\section{Experimental setup}\label{sec:setup}
+
+All the measurements of this report were made on the computer described in Table~\ref{tab:setup}.
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}p{4.6cm}p{11.4cm}@{}}
+\toprule
+Component & Configuration\\
+\midrule
+Computer & Acer Nitro ANV16-42-R3JW\\
+Processor & AMD Ryzen 7 260 with Radeon 780M Graphics, x86\_64\\
+Cores & 1 socket, 8 physical cores, 2 threads per core, 16 logical CPUs\\
+Cache & L1 data 256 KiB and L1 instruction 256 KiB (8 instances each), L2 8 MiB (8 instances), L3 16 MiB\\
+CPU frequency policy & scaling governor \texttt{powersave}\\
+Memory & 14 GiB of RAM (15\,126\,480 kB), 4 GiB of swap\\
+Memory modules & 2 modules of 8 GB (16 GB), DDR5, speed 5600 MT/s\\
+Graphics & NVIDIA GeForce RTX 5060 (dedicated, 8 GB GDDR7) and the integrated AMD Radeon 780M; the solver uses neither\\
+Storage & NVMe drive; the file system holding the project has 128 GB\\
+Operating system & Ubuntu 26.04.1 LTS, Linux kernel 7.0.0-38-generic\\
+Python & CPython 3.14.4\\
+\bottomrule
+\end{tabular}
+\caption{Configuration of the computer used for the measurements.}
+\label{tab:setup}
+\end{table}
+
+The measurements of \hyperref[sec:q2]{Question~2}, \hyperref[sec:q5]{Question~5} and \hyperref[sec:q6]{Question~6} ran several solver processes at the same time, eight, ten and eight respectively, on the 16 logical CPUs; those of \hyperref[sec:q3]{Question~3} ran one process at a time. The processes that run together share the caches and the memory bandwidth, so the times are indicative.
+
+This computer is not the one of the final competition. The assignment specifies an Intel Core Ultra 7 155H, Ubuntu 22.04 and Python 3.12 in a Docker container limited to 4 CPUs and 8 GiB of memory, with a limit of 60 seconds per instance. The times of this report cannot be compared directly with those of the competition.

@@ -5,6 +5,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage[a4paper,margin=2cm]{geometry}
 \usepackage{booktabs}
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage{hyperref}
 
@@ -14,10 +15,11 @@
 
 % Lightweight numbered pseudocode (no external package needed).
 \newcounter{pseudoline}
+\newcounter{procedure}
 \newcommand{\kw}[1]{\textbf{#1}}
 \newcommand{\pinfo}[1]{\par\noindent\hspace*{2.4em}#1}
-\newenvironment{pseudo}[1]
-  {\par\medskip\noindent\begin{minipage}{\linewidth}\rule{\linewidth}{0.8pt}\par\noindent\textbf{#1}\par
+\newenvironment{pseudo}[2]
+  {\par\medskip\noindent\begin{minipage}{\linewidth}\rule{\linewidth}{0.8pt}\par\noindent\refstepcounter{procedure}\label{#2}\textbf{Procedure~\theprocedure: #1}\par
    \noindent\rule{\linewidth}{0.4pt}\setcounter{pseudoline}{0}\small}
   {\par\noindent\rule{\linewidth}{0.8pt}\end{minipage}\par\medskip}
 \newcommand{\pline}[2]{\par\stepcounter{pseudoline}\noindent
@@ -35,5 +37,6 @@
 \input{question4.tex}
 \input{question5.tex}
 \input{question6.tex}
+\input{setup.tex}
 
 \end{document}

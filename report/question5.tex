@@ -7,7 +7,7 @@ File & Description\\
 \midrule
 \texttt{benchmark.py} & Measurement program: \texttt{generate\_instances} writes the Meowdoku instances, \texttt{run\_once} solves one instance with one heuristic and returns the counters, and \texttt{run\_all} runs every heuristic on every instance, each run in its own process.\\
 \texttt{sat.py} & \texttt{Stats}, the counters filled by \texttt{dpll\_h}: decisions, backtracks and time spent choosing branches.\\
-\texttt{heuristics.py} & The heuristics compared (Question~4).\\
+\texttt{heuristics.py} & The heuristics compared (\hyperref[sec:q4]{Question~4}).\\
 \texttt{meowdoku-instances/} & The 18 Meowdoku formulas generated for the measurements, and \texttt{expected.json}, which gives their status.\\
 \texttt{public-instances/instances/} & The 30 benchmark instances of the teachers, 19 SAT and 11 UNSAT.\\
 \bottomrule
@@ -16,13 +16,24 @@ File & Description\\
 
 \subsection{Protocol}
 
-\paragraph{Instances.} We used the 30 benchmark instances of the teachers, and 18 formulas from Meowdoku boards. Nine are satisfiable: boards of size $n=10$, 15 and 20, with seeds 1, 2 and 3, produced by the generator of Question~1. Nine are unsatisfiable: boards of size $n=8$, 9 and 10, with the same seeds, in which three cells without a cat form a new region. There are then $n+1$ regions on $n$ rows, and $n+1$ cats cannot be placed with at most one per row.
+\paragraph{Instances.} We used the 30 benchmark instances of the teachers, and 18 formulas from Meowdoku boards. Nine are satisfiable: boards of size $n=10$, 15 and 20, with seeds 1, 2 and 3, produced by the generator of \hyperref[sec:q1]{Question~1}. Nine are unsatisfiable: boards of size $n=8$, 9 and 10, with the same seeds, built by Procedure~\ref{proc:q5-unsat}.
 
-\paragraph{Heuristics and criteria.} The eight configurations are $H_0$, the random choice of Question~2, and the seven of Question~4. Each pair of instance and heuristic was run once, in its own process, with a limit of 60 seconds, ten runs at a time on a 16-core machine. $H_0$ is random, so its results are one sample. We measure three criteria: the number of decisions, that is the number of executions of the choice of a branch (line 17 of Algorithm~3); the CPU time of the process; and the share of this time spent computing the heuristic. The number of backtracks, which counts the executions of the second branch (line 21), is, in total, at least 97\% of the number of decisions for every heuristic and equal to it on unsatisfiable instances, so it adds nothing to the number of decisions and is not reported. Every answer was checked: the status against the expected one, and every model against all the clauses. None of the 384 runs gave a wrong answer.
+\begin{pseudo}{Unsatisfiable Meowdoku board of size $n$ and seed $s$}{proc:q5-unsat}
+\pinfo{\textbf{Input:} $n$ and $s$. \textbf{Output:} a board without solution.}
+\pline{0}{generate the board of size $n$ with the seed $s$ and its planted cats (Procedures~\ref{proc:q1-place} and~\ref{proc:q1-grow})}
+\pline{0}{$E\leftarrow$ the cells without a cat, in reading order: rows from top to bottom, each from left to right}
+\pline{0}{\kw{for} each of the first three cells $(i,j)$ of $E$: $\operatorname{reg}(i,j)\leftarrow X$, a new region name}
+\pline{0}{\kw{return} the board with the regions $R_1,\ldots,R_n$ and $X$}
+\end{pseudo}
+
+The board returned by Procedure~\ref{proc:q5-unsat} has $n+1$ regions on $n$ rows. Each region needs exactly one cat, and a row holds at most one, so at most $n$ cats can be placed and $n+1$ are required: the formula of the board, built by Procedure~\ref{proc:q1-convert}, is unsatisfiable. Three cells are given to the new region, and not one, because a region of a single cell gives a unit clause, and unit propagation then refutes the formula without any search; with three cells the solver must search, and the work grows quickly with $n$.
+
+\paragraph{Heuristics and criteria.} The eight configurations are $H_0$, the random choice of \hyperref[sec:q2]{Question~2}, and the seven of \hyperref[sec:q4]{Question~4}. Each pair of instance and heuristic was run once, in its own process, with a limit of 60 seconds, ten runs at a time on the machine described in Section~\ref{sec:setup}. $H_0$ is random, so its results are one sample. We measure three criteria: the number of decisions, that is the number of executions of the choice of a branch, which is line 6 of Procedure~\ref{proc:q2-dpll} and line 17 of Algorithm~3 of the assignment; the CPU time of the process; and the share of this time spent computing the heuristic. The number of backtracks, which counts the executions of the second branch (the second iteration of the loop of lines 7 to 9 of Procedure~\ref{proc:q2-dpll}, and line 21 of Algorithm~3), is, in total, at least 97\% of the number of decisions for every heuristic and equal to it on unsatisfiable instances, so it adds nothing to the number of decisions and is not reported. The counters and the timer are only read in the code of \texttt{dpll\_h}: they do not change the answer of the search, and they do not appear in the pseudocode. Every answer was checked: the status against the expected one, and every model against all the clauses. None of the 384 runs gave a wrong answer.
 
 \subsection{Results}
 
-\begin{center}
+\begin{table}[H]
+\centering
 \begin{tabular}{@{}lrrrrr@{}}
 \toprule
  & Public SAT & Public UNSAT & Meowdoku SAT & Meowdoku UNSAT & Total\\
@@ -38,11 +49,14 @@ H7s & 17 & 10 & 7 & 9 & 43\\
 H7d & 17 & 10 & 9 & 9 & 45\\
 \bottomrule
 \end{tabular}
-\end{center}
-The table above gives the number of instances solved within 60 s. Instance \texttt{public-03} was not solved by any heuristic. The other unsolved instances are \texttt{public-12} (by $H_0$, H1, H3s, H5s and H7s), \texttt{public-06} ($H_0$, H7s and H7d), \texttt{public-11} (H3d and H7d), and the boards \texttt{sat-n20-s1} (H3s, H5s and H7s) and \texttt{sat-n20-s2} (H1, H3s and H7s).
+\caption{Number of instances solved within 60 s, out of the number given in parentheses for each group.}
+\label{tab:q5-solved}
+\end{table}
+Table~\ref{tab:q5-solved} gives the number of instances solved within 60 s. Instance \texttt{public-03} was not solved by any heuristic. The other unsolved instances are \texttt{public-12} (by $H_0$, H1, H3s, H5s and H7s), \texttt{public-06} ($H_0$, H7s and H7d), \texttt{public-11} (H3d and H7d), and the boards \texttt{sat-n20-s1} (H3s, H5s and H7s) and \texttt{sat-n20-s2} (H1, H3s and H7s).
 
-The comparison of the effort is made on the instances solved by all the heuristics, which are 16 of the 19 public SAT instances, 10 of 11 public UNSAT, 7 of 9 Meowdoku SAT and all 9 Meowdoku UNSAT. For each group, the table gives the total number of decisions, in thousands, and the total CPU time in seconds. The last column is the share of the CPU time spent computing the heuristic, over the four groups.
-\begin{center}
+The comparison of the effort is made on the instances solved by all the heuristics, which are 16 of the 19 public SAT instances, 10 of 11 public UNSAT, 7 of 9 Meowdoku SAT and all 9 Meowdoku UNSAT. Table~\ref{tab:q5-effort} gives, for each group, the total number of decisions, in thousands, and the total CPU time in seconds. Its last column is the share of the CPU time spent computing the heuristic, over the four groups.
+\begin{table}[H]
+\centering
 \small
 \begin{tabular}{@{}lrrrrrrrrr@{}}
 \toprule
@@ -59,7 +73,9 @@ H7s & 5.3k & 29.0 s & 1.2k & 0.6 s & 33.2k & 16.4 s & 33.0k & 15.2 s & 3.0\%\\
 H7d & 18.4k & 62.7 s & 1.0k & 0.5 s & 2.4k & 3.8 s & 48.4k & 18.4 s & 9.7\%\\
 \bottomrule
 \end{tabular}
-\end{center}
+\caption{Total number of decisions (in thousands) and total CPU time on the instances solved by all the heuristics, for each group, and share of the CPU time spent computing the heuristic, over the four groups.}
+\label{tab:q5-effort}
+\end{table}
 
 \subsection{Analysis}
 
