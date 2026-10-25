@@ -1,0 +1,14 @@
+11 small instances x 8 heuristics
+instance    H0    H1   H3s   H3d   H5s   H5d   H7s   H7d   (ok = right status and valid model)
+cli_model_sat.cnf                       ok    ok    ok    ok    ok    ok    ok    ok
+edge_all_negative_sat.cnf               ok    ok    ok    ok    ok    ok    ok    ok
+edge_duplicate_literals_unsat.cnf       ok    ok    ok    ok    ok    ok    ok    ok
+edge_empty_clause_unsat.cnf             ok    ok    ok    ok    ok    ok    ok    ok
+edge_empty_formula_sat.cnf              ok    ok    ok    ok    ok    ok    ok    ok
+edge_no_clause_sat.cnf                  ok    ok    ok    ok    ok    ok    ok    ok
+edge_tautology_sat.cnf                  ok    ok    ok    ok    ok    ok    ok    ok
+smoke_01_sat.cnf                        ok    ok    ok    ok    ok    ok    ok    ok
+smoke_02_unsat.cnf                      ok    ok    ok    ok    ok    ok    ok    ok
+unit_01_sat.cnf                         ok    ok    ok    ok    ok    ok    ok    ok
+unit_02_unsat.cnf                       ok    ok    ok    ok    ok    ok    ok    ok
+wrong answers: 0 of 88 runs

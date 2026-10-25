@@ -1,0 +1,24 @@
+384 runs, limit 60 s, wrong answers: 0
+
+Instances solved
+           Public SAT (19)   Public UNSAT (11)    Meowdoku SAT (9)  Meowdoku UNSAT (9)    Total
+H0                      17                  10                   9                   9       45
+H1                      18                  10                   8                   9       45
+H3s                     18                  10                   7                   9       44
+H3d                     18                  10                   9                   9       46
+H5s                     18                  10                   8                   9       45
+H5d                     19                  10                   9                   9       47
+H7s                     17                  10                   7                   9       43
+H7d                     17                  10                   9                   9       45
+Unsolved: public-03.cnf (H0, H1, H3s, H3d, H5s, H5d, H7s, H7d); public-06.cnf (H0, H7s, H7d); public-11.cnf (H3d, H7d); public-12.cnf (H0, H1, H3s, H5s, H7s); sat-n20-s1.cnf (H3s, H5s, H7s); sat-n20-s2.cnf (H1, H3s, H7s)
+
+Effort on the instances solved by all heuristics: Public SAT 16, Public UNSAT 10, Meowdoku SAT 7, Meowdoku UNSAT 9
+                  Public SAT          Public UNSAT          Meowdoku SAT        Meowdoku UNSAT   heuristic share  backtracks/decisions
+H0          13.1k     70.0 s       9.4k     15.3 s       3.1k      2.1 s      24.1k     15.3 s             1.8 %           99.5 %
+H1           6.9k     66.4 s       5.2k      7.2 s      39.1k     29.0 s       1.4k      1.5 s             2.0 %           99.4 %
+H3s         24.1k     31.9 s       3.4k      5.0 s      33.2k     19.4 s      33.0k     15.5 s             3.3 %           99.1 %
+H3d         28.0k     50.9 s       2.3k      3.4 s       2.4k      3.4 s      48.4k     17.2 s             8.7 %           98.2 %
+H5s          6.8k     37.0 s       1.2k      0.5 s      33.2k     17.6 s      33.0k     18.5 s             2.9 %           98.8 %
+H5d         57.9k     77.3 s       1.0k      0.5 s       2.4k      3.5 s      48.4k     18.8 s            10.8 %           98.6 %
+H7s          5.3k     29.0 s       1.2k      0.6 s      33.2k     16.4 s      33.0k     15.2 s             3.0 %           98.7 %
+H7d         18.4k     62.7 s       1.0k      0.5 s       2.4k      3.8 s      48.4k     18.4 s             9.7 %           97.9 %

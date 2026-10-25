@@ -1,0 +1,24 @@
+Grid of the assignment (Figure 1b)
+  solution identical to Figure 2 of the assignment: True
+
+Board of Figure 1 (image_grid.txt)
+  result file written to results/Q3_solution_figure1_board.txt
+
+Generated boards, one run each, limit 60 s (time in seconds, rc = exit status)
+  n   seed 1          seed 2          seed 3
+  4     0.07 rc=0        0.07 rc=0        0.07 rc=0   
+  6     0.08 rc=0        0.08 rc=0        0.08 rc=0   
+  8     0.09 rc=0        0.08 rc=0        0.08 rc=0   
+  10    0.11 rc=0        0.15 rc=0        0.10 rc=0   
+  12    0.14 rc=0        0.10 rc=0        0.08 rc=0   
+  15    0.16 rc=0        1.21 rc=0        5.07 rc=0   
+  20    2.58 rc=0        0.41 rc=0        7.00 rc=0   
+
+check_solution on the board of Figure 1
+  legal placement: no violation
+  two cats in a row: ['region B contains 2 cats', 'region C contains 0 cats', 'cats (1, 2) and (1, 4) share a row']
+  two cats touching diagonally: ['region A contains 2 cats', 'region C contains 0 cats', 'cats (1, 2) and (2, 3) touch', 'cats (2, 3) and (4, 3) share a column']
+  cat moved into an occupied column: ['region E contains 2 cats', 'region F contains 0 cats', 'cats (1, 2) and (6, 2) share a column', 'cats (5, 1) and (6, 2) touch']
+
+Grid without solution (2x2, regions A A / B B)
+  exit status 1, message 'The grid has no solution', file written: False

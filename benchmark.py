@@ -108,9 +108,11 @@ def run_all(output, timeout, workers):
     Path(output).write_text(json.dumps(results, indent=1))
 
 
-def run_cli_once(mode, path, expected, timeout):
+def run_cli_once(mode, path, expected, timeout, output_model=True):
     """Run sat.py as the competition does and check the answer."""
-    command = [sys.executable, "sat.py", str(path), "--mode", mode, "--output-model"]
+    command = [sys.executable, "sat.py", str(path), "--mode", mode]
+    if output_model:
+        command.append("--output-model")
     start = time.time()
     try:
         done = subprocess.run(command, capture_output=True, text=True, timeout=timeout)
@@ -121,7 +123,7 @@ def run_cli_once(mode, path, expected, timeout):
     answer = {"s SATISFIABLE": "SAT", "s UNSATISFIABLE": "UNSAT"}.get(
         lines[0] if lines else "", "ERROR")
     correct = answer == expected
-    if correct and answer == "SAT":
+    if correct and answer == "SAT" and output_model:
         values = {int(word) for word in lines[1].split()[1:-1]}
         _, clauses = read_dimacs(path)
         correct = all(any(l in values for l in clause) for clause in clauses)

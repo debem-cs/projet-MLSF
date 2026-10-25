@@ -1,0 +1,2216 @@
+[
+ {
+  "correct": true,
+  "time": 0.1439962387084961,
+  "answer": "SAT",
+  "instance": "cli_model_sat.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.1265404224395752,
+  "answer": "SAT",
+  "instance": "cli_model_sat.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11347556114196777,
+  "answer": "SAT",
+  "instance": "cli_model_sat.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11144328117370605,
+  "answer": "SAT",
+  "instance": "cli_model_sat.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11210322380065918,
+  "answer": "SAT",
+  "instance": "cli_model_sat.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11980795860290527,
+  "answer": "SAT",
+  "instance": "cli_model_sat.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0992124080657959,
+  "answer": "SAT",
+  "instance": "edge_all_negative_sat.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11336016654968262,
+  "answer": "SAT",
+  "instance": "edge_all_negative_sat.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.13101506233215332,
+  "answer": "SAT",
+  "instance": "edge_all_negative_sat.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10407543182373047,
+  "answer": "SAT",
+  "instance": "edge_all_negative_sat.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09498357772827148,
+  "answer": "SAT",
+  "instance": "edge_all_negative_sat.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.1229250431060791,
+  "answer": "SAT",
+  "instance": "edge_all_negative_sat.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09515690803527832,
+  "answer": "UNSAT",
+  "instance": "edge_duplicate_literals_unsat.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11310338973999023,
+  "answer": "UNSAT",
+  "instance": "edge_duplicate_literals_unsat.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11097359657287598,
+  "answer": "UNSAT",
+  "instance": "edge_duplicate_literals_unsat.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09864354133605957,
+  "answer": "UNSAT",
+  "instance": "edge_duplicate_literals_unsat.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08987689018249512,
+  "answer": "UNSAT",
+  "instance": "edge_duplicate_literals_unsat.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0901179313659668,
+  "answer": "UNSAT",
+  "instance": "edge_duplicate_literals_unsat.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09252572059631348,
+  "answer": "UNSAT",
+  "instance": "edge_empty_clause_unsat.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.07998037338256836,
+  "answer": "UNSAT",
+  "instance": "edge_empty_clause_unsat.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09403538703918457,
+  "answer": "UNSAT",
+  "instance": "edge_empty_clause_unsat.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08083558082580566,
+  "answer": "UNSAT",
+  "instance": "edge_empty_clause_unsat.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0788412094116211,
+  "answer": "UNSAT",
+  "instance": "edge_empty_clause_unsat.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08356404304504395,
+  "answer": "UNSAT",
+  "instance": "edge_empty_clause_unsat.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0764777660369873,
+  "answer": "SAT",
+  "instance": "edge_empty_formula_sat.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09250092506408691,
+  "answer": "SAT",
+  "instance": "edge_empty_formula_sat.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.07684898376464844,
+  "answer": "SAT",
+  "instance": "edge_empty_formula_sat.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08393621444702148,
+  "answer": "SAT",
+  "instance": "edge_empty_formula_sat.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08208894729614258,
+  "answer": "SAT",
+  "instance": "edge_empty_formula_sat.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08101892471313477,
+  "answer": "SAT",
+  "instance": "edge_empty_formula_sat.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08385705947875977,
+  "answer": "SAT",
+  "instance": "edge_no_clause_sat.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08849883079528809,
+  "answer": "SAT",
+  "instance": "edge_no_clause_sat.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09898185729980469,
+  "answer": "SAT",
+  "instance": "edge_no_clause_sat.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0935978889465332,
+  "answer": "SAT",
+  "instance": "edge_no_clause_sat.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10083818435668945,
+  "answer": "SAT",
+  "instance": "edge_no_clause_sat.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08835887908935547,
+  "answer": "SAT",
+  "instance": "edge_no_clause_sat.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10375714302062988,
+  "answer": "SAT",
+  "instance": "edge_tautology_sat.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09626054763793945,
+  "answer": "SAT",
+  "instance": "edge_tautology_sat.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09154248237609863,
+  "answer": "SAT",
+  "instance": "edge_tautology_sat.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09497451782226562,
+  "answer": "SAT",
+  "instance": "edge_tautology_sat.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08345746994018555,
+  "answer": "SAT",
+  "instance": "edge_tautology_sat.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08707046508789062,
+  "answer": "SAT",
+  "instance": "edge_tautology_sat.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08983063697814941,
+  "answer": "SAT",
+  "instance": "public-01.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.12256932258605957,
+  "answer": "SAT",
+  "instance": "public-01.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08839821815490723,
+  "answer": "SAT",
+  "instance": "public-01.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11765027046203613,
+  "answer": "SAT",
+  "instance": "public-01.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08820891380310059,
+  "answer": "SAT",
+  "instance": "public-01.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0989527702331543,
+  "answer": "SAT",
+  "instance": "public-01.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09810185432434082,
+  "answer": "SAT",
+  "instance": "public-02.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11090421676635742,
+  "answer": "SAT",
+  "instance": "public-02.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08953285217285156,
+  "answer": "SAT",
+  "instance": "public-02.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.13515233993530273,
+  "answer": "SAT",
+  "instance": "public-02.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09091544151306152,
+  "answer": "SAT",
+  "instance": "public-02.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08958005905151367,
+  "answer": "SAT",
+  "instance": "public-02.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-03.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-03.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-03.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-03.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-03.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-03.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11369824409484863,
+  "answer": "SAT",
+  "instance": "public-04.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10573673248291016,
+  "answer": "SAT",
+  "instance": "public-04.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10345792770385742,
+  "answer": "SAT",
+  "instance": "public-04.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0961458683013916,
+  "answer": "SAT",
+  "instance": "public-04.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10469889640808105,
+  "answer": "SAT",
+  "instance": "public-04.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10687756538391113,
+  "answer": "SAT",
+  "instance": "public-04.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.172471284866333,
+  "answer": "UNSAT",
+  "instance": "public-05.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.20961952209472656,
+  "answer": "UNSAT",
+  "instance": "public-05.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.1517200469970703,
+  "answer": "UNSAT",
+  "instance": "public-05.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.19045543670654297,
+  "answer": "UNSAT",
+  "instance": "public-05.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.15929722785949707,
+  "answer": "UNSAT",
+  "instance": "public-05.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.1372969150543213,
+  "answer": "UNSAT",
+  "instance": "public-05.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-06.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.5431194305419922,
+  "answer": "SAT",
+  "instance": "public-06.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-06.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-06.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-06.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-06.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10019850730895996,
+  "answer": "SAT",
+  "instance": "public-07.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0862119197845459,
+  "answer": "SAT",
+  "instance": "public-07.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08449530601501465,
+  "answer": "SAT",
+  "instance": "public-07.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08981990814208984,
+  "answer": "SAT",
+  "instance": "public-07.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08585333824157715,
+  "answer": "SAT",
+  "instance": "public-07.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08133292198181152,
+  "answer": "SAT",
+  "instance": "public-07.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.9337496757507324,
+  "answer": "UNSAT",
+  "instance": "public-08.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.7091388702392578,
+  "answer": "UNSAT",
+  "instance": "public-08.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.5016686916351318,
+  "answer": "UNSAT",
+  "instance": "public-08.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 1.8278343677520752,
+  "answer": "UNSAT",
+  "instance": "public-08.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 2.0108354091644287,
+  "answer": "UNSAT",
+  "instance": "public-08.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.9925878047943115,
+  "answer": "UNSAT",
+  "instance": "public-08.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.23621296882629395,
+  "answer": "SAT",
+  "instance": "public-09.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10694050788879395,
+  "answer": "SAT",
+  "instance": "public-09.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10007524490356445,
+  "answer": "SAT",
+  "instance": "public-09.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.19127368927001953,
+  "answer": "SAT",
+  "instance": "public-09.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05125689506530762,
+  "answer": "SAT",
+  "instance": "public-09.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06317925453186035,
+  "answer": "SAT",
+  "instance": "public-09.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.16816401481628418,
+  "answer": "UNSAT",
+  "instance": "public-10.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.16199541091918945,
+  "answer": "UNSAT",
+  "instance": "public-10.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.26987576484680176,
+  "answer": "UNSAT",
+  "instance": "public-10.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.15621662139892578,
+  "answer": "UNSAT",
+  "instance": "public-10.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.19275355339050293,
+  "answer": "UNSAT",
+  "instance": "public-10.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.18036127090454102,
+  "answer": "UNSAT",
+  "instance": "public-10.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 13.511730194091797,
+  "answer": "SAT",
+  "instance": "public-11.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 8.316592931747437,
+  "answer": "SAT",
+  "instance": "public-11.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 20.52026915550232,
+  "answer": "SAT",
+  "instance": "public-11.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 12.505256652832031,
+  "answer": "SAT",
+  "instance": "public-11.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 39.515105962753296,
+  "answer": "SAT",
+  "instance": "public-11.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 36.779107093811035,
+  "answer": "SAT",
+  "instance": "public-11.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-12.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-12.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 3.3227953910827637,
+  "answer": "SAT",
+  "instance": "public-12.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-12.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-12.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 7.114935398101807,
+  "answer": "SAT",
+  "instance": "public-12.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.059845685958862305,
+  "answer": "SAT",
+  "instance": "public-13.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11279511451721191,
+  "answer": "SAT",
+  "instance": "public-13.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06165266036987305,
+  "answer": "SAT",
+  "instance": "public-13.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.061101675033569336,
+  "answer": "SAT",
+  "instance": "public-13.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05675053596496582,
+  "answer": "SAT",
+  "instance": "public-13.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08862709999084473,
+  "answer": "SAT",
+  "instance": "public-13.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.07380342483520508,
+  "answer": "SAT",
+  "instance": "public-14.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.1543886661529541,
+  "answer": "SAT",
+  "instance": "public-14.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08651351928710938,
+  "answer": "SAT",
+  "instance": "public-14.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08492279052734375,
+  "answer": "SAT",
+  "instance": "public-14.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05154776573181152,
+  "answer": "SAT",
+  "instance": "public-14.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05677676200866699,
+  "answer": "SAT",
+  "instance": "public-14.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 2.6442270278930664,
+  "answer": "UNSAT",
+  "instance": "public-15.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 1.4857206344604492,
+  "answer": "UNSAT",
+  "instance": "public-15.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 3.6433372497558594,
+  "answer": "UNSAT",
+  "instance": "public-15.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.9323985576629639,
+  "answer": "UNSAT",
+  "instance": "public-15.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 1.850238561630249,
+  "answer": "UNSAT",
+  "instance": "public-15.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 3.8838601112365723,
+  "answer": "UNSAT",
+  "instance": "public-15.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09622859954833984,
+  "answer": "UNSAT",
+  "instance": "public-16.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0980522632598877,
+  "answer": "UNSAT",
+  "instance": "public-16.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08913946151733398,
+  "answer": "UNSAT",
+  "instance": "public-16.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08972001075744629,
+  "answer": "UNSAT",
+  "instance": "public-16.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0966031551361084,
+  "answer": "UNSAT",
+  "instance": "public-16.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09815740585327148,
+  "answer": "UNSAT",
+  "instance": "public-16.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.5009119510650635,
+  "answer": "SAT",
+  "instance": "public-17.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05978512763977051,
+  "answer": "SAT",
+  "instance": "public-17.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 1.2548203468322754,
+  "answer": "SAT",
+  "instance": "public-17.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.20287346839904785,
+  "answer": "SAT",
+  "instance": "public-17.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 1.5273733139038086,
+  "answer": "SAT",
+  "instance": "public-17.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.3374662399291992,
+  "answer": "SAT",
+  "instance": "public-17.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 10.676677942276001,
+  "answer": "SAT",
+  "instance": "public-18.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 56.754631996154785,
+  "answer": "SAT",
+  "instance": "public-18.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 10.127310991287231,
+  "answer": "SAT",
+  "instance": "public-18.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 47.0750789642334,
+  "answer": "SAT",
+  "instance": "public-18.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 18.62617063522339,
+  "answer": "SAT",
+  "instance": "public-18.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 20.95033597946167,
+  "answer": "SAT",
+  "instance": "public-18.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 3.0524749755859375,
+  "answer": "SAT",
+  "instance": "public-19.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 4.4833197593688965,
+  "answer": "SAT",
+  "instance": "public-19.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 3.2709906101226807,
+  "answer": "SAT",
+  "instance": "public-19.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 2.097376823425293,
+  "answer": "SAT",
+  "instance": "public-19.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 2.1928203105926514,
+  "answer": "SAT",
+  "instance": "public-19.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 1.9982242584228516,
+  "answer": "SAT",
+  "instance": "public-19.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10933542251586914,
+  "answer": "SAT",
+  "instance": "public-20.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06185650825500488,
+  "answer": "SAT",
+  "instance": "public-20.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.18079757690429688,
+  "answer": "SAT",
+  "instance": "public-20.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.21681809425354004,
+  "answer": "SAT",
+  "instance": "public-20.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.07606101036071777,
+  "answer": "SAT",
+  "instance": "public-20.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08662128448486328,
+  "answer": "SAT",
+  "instance": "public-20.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.2975890636444092,
+  "answer": "SAT",
+  "instance": "public-21.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.3027186393737793,
+  "answer": "SAT",
+  "instance": "public-21.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.30604004859924316,
+  "answer": "SAT",
+  "instance": "public-21.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.30184316635131836,
+  "answer": "SAT",
+  "instance": "public-21.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.2913844585418701,
+  "answer": "SAT",
+  "instance": "public-21.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.2970104217529297,
+  "answer": "SAT",
+  "instance": "public-21.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 3.9389915466308594,
+  "answer": "UNSAT",
+  "instance": "public-22.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 1.2564189434051514,
+  "answer": "UNSAT",
+  "instance": "public-22.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 2.9511172771453857,
+  "answer": "UNSAT",
+  "instance": "public-22.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 4.8435585498809814,
+  "answer": "UNSAT",
+  "instance": "public-22.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 1.0885071754455566,
+  "answer": "UNSAT",
+  "instance": "public-22.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 3.016787052154541,
+  "answer": "UNSAT",
+  "instance": "public-22.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.19172334671020508,
+  "answer": "SAT",
+  "instance": "public-23.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.15493559837341309,
+  "answer": "SAT",
+  "instance": "public-23.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.17838215827941895,
+  "answer": "SAT",
+  "instance": "public-23.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.12997102737426758,
+  "answer": "SAT",
+  "instance": "public-23.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.12656331062316895,
+  "answer": "SAT",
+  "instance": "public-23.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.13486623764038086,
+  "answer": "SAT",
+  "instance": "public-23.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.19705986976623535,
+  "answer": "UNSAT",
+  "instance": "public-24.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.17433810234069824,
+  "answer": "UNSAT",
+  "instance": "public-24.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.23167943954467773,
+  "answer": "UNSAT",
+  "instance": "public-24.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.20979666709899902,
+  "answer": "UNSAT",
+  "instance": "public-24.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.1995704174041748,
+  "answer": "UNSAT",
+  "instance": "public-24.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.19649720191955566,
+  "answer": "UNSAT",
+  "instance": "public-24.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.269153356552124,
+  "answer": "UNSAT",
+  "instance": "public-25.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.22308063507080078,
+  "answer": "UNSAT",
+  "instance": "public-25.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.19542884826660156,
+  "answer": "UNSAT",
+  "instance": "public-25.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.20438241958618164,
+  "answer": "UNSAT",
+  "instance": "public-25.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.24632930755615234,
+  "answer": "UNSAT",
+  "instance": "public-25.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.19021129608154297,
+  "answer": "UNSAT",
+  "instance": "public-25.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 2.3424150943756104,
+  "answer": "SAT",
+  "instance": "public-26.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.22607922554016113,
+  "answer": "SAT",
+  "instance": "public-26.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.12509512901306152,
+  "answer": "SAT",
+  "instance": "public-26.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06856250762939453,
+  "answer": "SAT",
+  "instance": "public-26.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06148028373718262,
+  "answer": "SAT",
+  "instance": "public-26.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06772112846374512,
+  "answer": "SAT",
+  "instance": "public-26.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-27.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-27.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-27.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-27.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-27.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "instance": "public-27.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.16751599311828613,
+  "answer": "UNSAT",
+  "instance": "public-28.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.23141860961914062,
+  "answer": "UNSAT",
+  "instance": "public-28.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.18710947036743164,
+  "answer": "UNSAT",
+  "instance": "public-28.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.1481330394744873,
+  "answer": "UNSAT",
+  "instance": "public-28.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.22854375839233398,
+  "answer": "UNSAT",
+  "instance": "public-28.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.1816272735595703,
+  "answer": "UNSAT",
+  "instance": "public-28.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.07489299774169922,
+  "answer": "SAT",
+  "instance": "public-29.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11632609367370605,
+  "answer": "SAT",
+  "instance": "public-29.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10365033149719238,
+  "answer": "SAT",
+  "instance": "public-29.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09606695175170898,
+  "answer": "SAT",
+  "instance": "public-29.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09993290901184082,
+  "answer": "SAT",
+  "instance": "public-29.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06629133224487305,
+  "answer": "SAT",
+  "instance": "public-29.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.9137840270996094,
+  "answer": "UNSAT",
+  "instance": "public-30.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 1.5300014019012451,
+  "answer": "UNSAT",
+  "instance": "public-30.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 3.4400417804718018,
+  "answer": "UNSAT",
+  "instance": "public-30.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 3.630248546600342,
+  "answer": "UNSAT",
+  "instance": "public-30.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 2.4043211936950684,
+  "answer": "UNSAT",
+  "instance": "public-30.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 3.457423210144043,
+  "answer": "UNSAT",
+  "instance": "public-30.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0456233024597168,
+  "answer": "SAT",
+  "instance": "smoke_01_sat.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.052100419998168945,
+  "answer": "SAT",
+  "instance": "smoke_01_sat.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05003714561462402,
+  "answer": "SAT",
+  "instance": "smoke_01_sat.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04958605766296387,
+  "answer": "SAT",
+  "instance": "smoke_01_sat.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05188345909118652,
+  "answer": "SAT",
+  "instance": "smoke_01_sat.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05599808692932129,
+  "answer": "SAT",
+  "instance": "smoke_01_sat.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04928183555603027,
+  "answer": "UNSAT",
+  "instance": "smoke_02_unsat.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04756903648376465,
+  "answer": "UNSAT",
+  "instance": "smoke_02_unsat.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.052017927169799805,
+  "answer": "UNSAT",
+  "instance": "smoke_02_unsat.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05027198791503906,
+  "answer": "UNSAT",
+  "instance": "smoke_02_unsat.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05348539352416992,
+  "answer": "UNSAT",
+  "instance": "smoke_02_unsat.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.051431894302368164,
+  "answer": "UNSAT",
+  "instance": "smoke_02_unsat.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0467228889465332,
+  "answer": "SAT",
+  "instance": "unit_01_sat.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04700016975402832,
+  "answer": "SAT",
+  "instance": "unit_01_sat.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04597067832946777,
+  "answer": "SAT",
+  "instance": "unit_01_sat.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04722237586975098,
+  "answer": "SAT",
+  "instance": "unit_01_sat.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.045278310775756836,
+  "answer": "SAT",
+  "instance": "unit_01_sat.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04569602012634277,
+  "answer": "SAT",
+  "instance": "unit_01_sat.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0566103458404541,
+  "answer": "UNSAT",
+  "instance": "unit_02_unsat.cnf",
+  "version": "status",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05716848373413086,
+  "answer": "UNSAT",
+  "instance": "unit_02_unsat.cnf",
+  "version": "status",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0716252326965332,
+  "answer": "UNSAT",
+  "instance": "unit_02_unsat.cnf",
+  "version": "status",
+  "run": 2,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05783200263977051,
+  "answer": "UNSAT",
+  "instance": "unit_02_unsat.cnf",
+  "version": "model",
+  "run": 0,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05763983726501465,
+  "answer": "UNSAT",
+  "instance": "unit_02_unsat.cnf",
+  "version": "model",
+  "run": 1,
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.060957908630371094,
+  "answer": "UNSAT",
+  "instance": "unit_02_unsat.cnf",
+  "version": "model",
+  "run": 2,
+  "expected": "UNSAT"
+ }
+]

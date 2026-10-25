@@ -1,0 +1,658 @@
+[
+ {
+  "correct": true,
+  "time": 0.047126054763793945,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "cli_model_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.047049760818481445,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "cli_model_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.047177791595458984,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "edge_all_negative_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.045829057693481445,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "edge_all_negative_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0454707145690918,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "edge_duplicate_literals_unsat.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04659461975097656,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "edge_duplicate_literals_unsat.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04578876495361328,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "edge_empty_clause_unsat.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04635310173034668,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "edge_empty_clause_unsat.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04742026329040527,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "edge_empty_formula_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04755520820617676,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "edge_empty_formula_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.047120094299316406,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "edge_no_clause_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04685044288635254,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "edge_no_clause_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04640316963195801,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "edge_tautology_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.04976320266723633,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "edge_tautology_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05083155632019043,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-01.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0497128963470459,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-01.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0811166763305664,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-02.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05245041847229004,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-02.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "mode": "dpll",
+  "instance": "public-03.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "mode": "optimized",
+  "instance": "public-03.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06939148902893066,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-04.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.44687962532043457,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-04.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.11421036720275879,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "public-05.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06388545036315918,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "public-05.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.633927583694458,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-06.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 35.07480788230896,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-06.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09261775016784668,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-07.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.10442495346069336,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-07.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 1.1838088035583496,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "public-08.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0860738754272461,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "public-08.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.16158199310302734,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-09.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.061141252517700195,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-09.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.22993183135986328,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "public-10.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06945013999938965,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "public-10.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 3.3744916915893555,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-11.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 3.6077542304992676,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-11.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 12.378425598144531,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-12.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 25.908607482910156,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-12.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.19820499420166016,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-13.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.07573461532592773,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-13.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06690049171447754,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-14.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0598452091217041,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-14.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 2.3036141395568848,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "public-15.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.09170055389404297,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "public-15.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.1011648178100586,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "public-16.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08313202857971191,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "public-16.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08701848983764648,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-17.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.0645744800567627,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-17.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 19.08250141143799,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-18.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 20.80751609802246,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-18.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 2.173105239868164,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-19.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 5.464893579483032,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-19.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.2813913822174072,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-20.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.07787632942199707,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-20.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.3022310733795166,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-21.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.31120896339416504,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-21.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 3.065469980239868,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "public-22.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.22850751876831055,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "public-22.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.29355740547180176,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-23.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.15939950942993164,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-23.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.2177579402923584,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "public-24.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.08010697364807129,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "public-24.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.19525909423828125,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "public-25.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.07798004150390625,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "public-25.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.07623171806335449,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-26.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06635665893554688,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-26.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": false,
+  "time": 60,
+  "answer": "TIMEOUT",
+  "mode": "dpll",
+  "instance": "public-27.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 40.69536066055298,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-27.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.16725778579711914,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "public-28.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.07103109359741211,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "public-28.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.06186032295227051,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "public-29.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.07481122016906738,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "public-29.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 4.268683671951294,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "public-30.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.1452486515045166,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "public-30.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.052107810974121094,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "smoke_01_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05249214172363281,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "smoke_01_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05231499671936035,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "smoke_02_unsat.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05154228210449219,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "smoke_02_unsat.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05245327949523926,
+  "answer": "SAT",
+  "mode": "dpll",
+  "instance": "unit_01_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05023694038391113,
+  "answer": "SAT",
+  "mode": "optimized",
+  "instance": "unit_01_sat.cnf",
+  "expected": "SAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05130338668823242,
+  "answer": "UNSAT",
+  "mode": "dpll",
+  "instance": "unit_02_unsat.cnf",
+  "expected": "UNSAT"
+ },
+ {
+  "correct": true,
+  "time": 0.05241584777832031,
+  "answer": "UNSAT",
+  "mode": "optimized",
+  "instance": "unit_02_unsat.cnf",
+  "expected": "UNSAT"
+ }
+]

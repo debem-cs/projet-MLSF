@@ -1,4 +1,4 @@
-\section{Question 2: Reading DIMACS and implementing DPLL}
+\section{Question 2: Reading DIMACS and implementing DPLL}\label{sec:q2}
 
 \begin{center}
 \begin{tabular}{@{}p{6.2cm}p{10cm}@{}}
@@ -83,7 +83,7 @@ The function \texttt{dpll\_model} is this procedure. The function \texttt{dpll\_
 The parser read all 41 provided CNF files (5 small interface tests, 6 edge cases and 30 benchmark instances). Each file was then solved three times by each version, \texttt{dpll\_status} and \texttt{dpll\_model}, with a limit of 60 seconds per run, which is the limit of the final competition. Three runs were performed since the branching choice is random. Every returned status was compared with \texttt{public-instances/expected.json}, and every returned model was checked against every clause of the original formula. Times are reported as the median over the runs that finished.
 
 \paragraph{Results.}
-No answer was wrong: every status matched the expected one, and every model satisfied all the clauses. Five instances were not solved in every run: \texttt{public-03} in no run, and \texttt{public-06}, \texttt{public-11}, \texttt{public-12} and \texttt{public-27} in some runs only. The other 36 instances were solved in all runs by both versions. Among the remaining 18 benchmark instances, the median time is below 0.5 s in both versions. Table~\ref{tab:q2-results} gives the 12 benchmark instances that take longer or are not solved in every run.
+No answer was wrong: every status matched the expected one, and every model satisfied all the clauses. Four instances were not solved in every run: \texttt{public-03} and \texttt{public-27} in no run, and \texttt{public-06} and \texttt{public-12} in some runs only. The other 37 instances were solved in all runs by both versions. Among the remaining 19 benchmark instances, the median time is at most 0.5 s in both versions. Table~\ref{tab:q2-results} gives the 11 benchmark instances that take longer or are not solved in every run.
 \begin{table}[htbp]
 \centering
 \begin{tabular}{@{}lrrcll@{}}
@@ -91,17 +91,16 @@ No answer was wrong: every status matched the expected one, and every model sati
 Instance & Variables & Clauses & Status & \texttt{dpll\_model} & \texttt{dpll\_status}\\
 \midrule
 \texttt{public-03} & 63 & 168 & UNSAT & 0/3, timeout & 0/3, timeout\\
-\texttt{public-06} & 1363 & 3034 & SAT & 0/3, timeout & 2/3, 0.6 s\\
-\texttt{public-08} & 100 & 900 & UNSAT & 3/3, 1.1 s & 3/3, 0.8 s\\
-\texttt{public-11} & 729 & 21844 & SAT & 3/3, 12.1 s & 2/3, 6.3 s\\
-\texttt{public-12} & 522 & 11636 & SAT & 0/3, timeout & 2/3, 28.2 s\\
-\texttt{public-15} & 100 & 850 & UNSAT & 3/3, 2.0 s & 3/3, 1.2 s\\
-\texttt{public-17} & 100 & 850 & SAT & 3/3, 0.4 s & 3/3, 1.3 s\\
-\texttt{public-18} & 459 & 7054 & SAT & 3/3, 31.2 s & 3/3, 49.9 s\\
-\texttt{public-19} & 729 & 22060 & SAT & 3/3, 2.1 s & 3/3, 2.2 s\\
-\texttt{public-22} & 100 & 850 & UNSAT & 3/3, 3.4 s & 3/3, 2.9 s\\
-\texttt{public-27} & 181 & 3151 & SAT & 1/3, 43.8 s & 2/3, 6.8 s\\
-\texttt{public-30} & 100 & 850 & UNSAT & 3/3, 1.3 s & 3/3, 3.1 s\\
+\texttt{public-06} & 1363 & 3034 & SAT & 0/3, timeout & 1/3, 0.5 s\\
+\texttt{public-08} & 100 & 900 & UNSAT & 3/3, 1.8 s & 3/3, 0.7 s\\
+\texttt{public-11} & 729 & 21844 & SAT & 3/3, 36.8 s & 3/3, 13.5 s\\
+\texttt{public-12} & 522 & 11636 & SAT & 1/3, 7.1 s & 1/3, 3.3 s\\
+\texttt{public-15} & 100 & 850 & UNSAT & 3/3, 1.9 s & 3/3, 2.6 s\\
+\texttt{public-18} & 459 & 7054 & SAT & 3/3, 21.0 s & 3/3, 10.7 s\\
+\texttt{public-19} & 729 & 22060 & SAT & 3/3, 2.1 s & 3/3, 3.3 s\\
+\texttt{public-22} & 100 & 850 & UNSAT & 3/3, 3.0 s & 3/3, 3.0 s\\
+\texttt{public-27} & 181 & 3151 & SAT & 0/3, timeout & 0/3, timeout\\
+\texttt{public-30} & 100 & 850 & UNSAT & 3/3, 3.5 s & 3/3, 1.5 s\\
 \bottomrule
 \end{tabular}
 \caption{Benchmark instances whose median time exceeds 1 s in at least one version, or that are not solved in every run. A cell reads ``$k$/3, $t$'': $k$ is the number of the three runs that finished within 60 s, and $t$ is the \emph{median} of the times of these $k$ runs.}
@@ -111,8 +110,8 @@ Instance & Variables & Clauses & Status & \texttt{dpll\_model} & \texttt{dpll\_s
 \subsection{Performance}
 
 \begin{itemize}
-\item \emph{The random choice makes the time unstable.} \texttt{public-12} was solved by \texttt{dpll\_status} in 4.8 s and in 51.7 s in two runs, and exceeded 60 s in the third; \texttt{public-27} behaves similarly. Differences between the two versions, such as 31 s against 50 s on \texttt{public-18}, are of the same order as this variation, so these measurements do not show that one version is faster than the other. Both use the same search.
+\item \emph{The random choice makes the time unstable.} \texttt{public-12} was solved by \texttt{dpll\_status} in 3.3 s in one run and exceeded 60 s in the other two, and \texttt{public-18} took from 10.1 s to 56.8 s over the three runs of \texttt{dpll\_status}. Differences between the two versions, such as 21 s against 11 s (medians) on \texttt{public-18}, are of the same order as this variation, so these measurements do not show that one version is faster than the other. Both use the same search.
 \item \emph{\texttt{public-03} is out of reach for this baseline.} It is unsatisfiable, so the whole search tree must be explored, and the random choice of branches does not help. It has only 63 variables but no run finished within 60 s. The teachers' README states that some instances are noticeably hard for a basic DPLL.
-\item \emph{\texttt{public-06} needs deep recursion.} Both functions are recursive, and each assignment adds one level, so the depth can reach the number of variables. This instance has 1363 variables, more than Python's default limit of 1000 nested calls, and an earlier version of \texttt{sat.py} stopped on it with a \texttt{RecursionError} after about 0.6 s. With the limit raised, it behaves like \texttt{public-12} and \texttt{public-27}: when the random choices are favorable it is solved in about a second, and otherwise it exceeds 60 s.
-\item \emph{The cost of a step grows with the formula.} \texttt{simplify} builds a new copy of the whole remaining formula for every assignment, including forced ones. The two instances with about 22\,000 clauses, \texttt{public-11} and \texttt{public-19}, already need several seconds.
+\item \emph{\texttt{public-06} needs deep recursion.} Both functions are recursive, and each assignment adds one level, so the depth can reach the number of variables. This instance has 1363 variables, more than Python's default limit of 1000 nested calls, and an earlier version of \texttt{sat.py} stopped on it with a \texttt{RecursionError} after about 0.6 s. With the limit raised, it behaves like \texttt{public-12}: when the random choices are favorable it is solved quickly (once in six runs, in 0.5 s), and otherwise it exceeds 60 s.
+\item \emph{The cost of a step grows with the formula.} \texttt{simplify} builds a new copy of the whole remaining formula for every assignment, including forced ones. The two instances with about 22\,000 clauses, \texttt{public-11} and \texttt{public-19}, already need from 2 s to 37 s.
 \end{itemize}

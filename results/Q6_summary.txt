@@ -1,0 +1,10 @@
+82 runs, limit 60 s
+dpll       correct 39 of 41, total time of these answers 51.8 s, wrong answers 0
+           not solved: public-03.cnf, public-27.cnf
+optimized  correct 40 of 41, total time of these answers 134.7 s, wrong answers 0
+           not solved: public-03.cnf
+solved by both modes: 39
+  dpll       time on these 51.8 s
+  optimized  time on these 94.0 s
+slowest answers of dpll: public-18.cnf 19.1 s, public-12.cnf 12.4 s, public-30.cnf 4.3 s
+slowest answers of optimized: public-27.cnf 40.7 s, public-06.cnf 35.1 s, public-12.cnf 25.9 s

@@ -1,4 +1,4 @@
-\section{Question 3: Producing a Meowdoku solution file}
+\section{Question 3: Producing a Meowdoku solution file}\label{sec:q3}
 
 \begin{center}
 \begin{tabular}{@{}p{6.2cm}p{10cm}@{}}
@@ -70,7 +70,7 @@ F 6 5
 * . . . . .
 . . . . * .
 \end{verbatim}
-\item \emph{Generated boards.} Boards from the generator of Question~1 were solved with seeds 1, 2 and 3, one run each, and every solution passed the check. The table below gives the times, which include about 0.04 s of interpreter start-up.
+\item \emph{Generated boards.} Boards from the generator of Question~1 were solved with seeds 1, 2 and 3, one run each, and every solution passed the check. The table below gives the times, which include about 0.08 s of interpreter start-up.
 \item \emph{The check itself.} Wrong placements were given to \texttt{check\_solution}: two cats in one row, two cats touching diagonally, and a cat moved into an occupied column. Each time the corresponding violations were reported, and the legal placement of Figure~\ref{fig:meowdoku-board} gave none.
 \item \emph{A grid without solution.} For a $2\times2$ grid with regions \texttt{A A} and \texttt{B B}, the program reports that the grid has no solution, exits with status 1 and writes no file.
 \end{itemize}
@@ -81,16 +81,16 @@ F 6 5
 \toprule
 $n$ & Variables & Seed 1 & Seed 2 & Seed 3\\
 \midrule
-4 & 16 & 0.05 s & 0.05 s & 0.04 s\\
-6 & 36 & 0.05 s & 0.04 s & 0.04 s\\
-8 & 64 & 0.05 s & 0.05 s & 0.05 s\\
-10 & 100 & 0.07 s & 0.05 s & 0.06 s\\
-12 & 144 & 0.07 s & 0.08 s & 0.08 s\\
-15 & 225 & 0.14 s & 0.14 s & 0.13 s\\
-20 & 400 & timeout & 0.93 s & 13.2 s\\
+4 & 16 & 0.07 s & 0.07 s & 0.07 s\\
+6 & 36 & 0.08 s & 0.08 s & 0.08 s\\
+8 & 64 & 0.09 s & 0.08 s & 0.08 s\\
+10 & 100 & 0.11 s & 0.15 s & 0.10 s\\
+12 & 144 & 0.14 s & 0.10 s & 0.08 s\\
+15 & 225 & 0.16 s & 1.21 s & 5.07 s\\
+20 & 400 & 2.58 s & 0.41 s & 7.00 s\\
 \bottomrule
 \end{tabular}
 \end{center}
 
 
-The boards up to $n=15$ are solved almost instantly. At $n=20$ the time depends strongly on the board and on the random choices of the solver of Question~2: one board was not solved within 60 s.
+The boards up to $n=12$ are solved in about 0.1 s. For $n=15$ and $n=20$ the time depends strongly on the board and on the random choices of the solver of Question~2, and goes from 0.16 s to 7 s.

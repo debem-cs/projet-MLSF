@@ -1,14 +1,14 @@
-\section{Project overview}
+\section*{Project overview}
 
 The project builds a SAT solver and uses it to solve Meowdoku. In a Meowdoku grid, each cell belongs to one colored region. Cats must be placed so that each region contains exactly one cat, each row and column contains at most one cat, and no two cats touch, including diagonally. A SAT problem asks whether there is an assignment of true or false to Boolean variables that makes a formula true. By assigning one variable to each cell, the game rules can be written as a formula whose satisfying assignments correspond to legal cat placements.
 
 The work forms a sequence. First, a grid is converted into clauses in DIMACS CNF format, the standard text representation used here for SAT instances. Next, a DPLL solver reads those clauses and searches for a satisfying assignment. A satisfying assignment can then be translated back into cat coordinates and displayed on the original grid. Later questions change how the solver chooses its search branches, measure the effects, and specify the final command-line interface. Each stage uses the output of the preceding stage.
 
 \begin{enumerate}
-\item \textbf{Question 1 --- Model and generate grids.} Define the Boolean variable for each cell; express the four game rules as CNF clauses; write a converter from the required grid format to DIMACS; and generate grids that have at least one solution by construction.
-\item \textbf{Question 2 --- Read and solve CNF.} Parse DIMACS into a Python formula, implement the status-only and model-producing versions of DPLL, validate them on the supplied instances, and discuss their performance.
-\item \textbf{Question 3 --- Present a game solution.} Connect the grid converter to the SAT solver. Convert a satisfying assignment back into cell coordinates, write the required region-by-region and marked-grid output, and check that the placement obeys the game rules.
-\item \textbf{Question 4 --- Improve branch selection.} Implement and compare at least four DPLL branching heuristics. The selection must include a literal-based rule, a rule that uses clause sizes, and a dynamic rule based on the current simplified formula.
-\item \textbf{Question 5 --- Measure the heuristics.} Instrument the solvers, compare their search effort and run time on varied SAT and UNSAT instances, and analyze whether the extra work of choosing branches pays off.
-\item \textbf{Question 6 --- Provide the final solver interface.} Offer both the basic \texttt{dpll} mode and an \texttt{optimized} mode through \texttt{sat.py}, using the prescribed SAT/UNSAT and optional model output format.
+\item \textbf{\hyperref[sec:q1]{Question 1 --- Model and generate grids.}} Define the Boolean variable for each cell; express the four game rules as CNF clauses; write a converter from the required grid format to DIMACS; and generate grids that have at least one solution by construction.
+\item \textbf{\hyperref[sec:q2]{Question 2 --- Read and solve CNF.}} Parse DIMACS into a Python formula, implement the status-only and model-producing versions of DPLL, validate them on the supplied instances, and discuss their performance.
+\item \textbf{\hyperref[sec:q3]{Question 3 --- Present a game solution.}} Connect the grid converter to the SAT solver. Convert a satisfying assignment back into cell coordinates, write the required region-by-region and marked-grid output, and check that the placement obeys the game rules.
+\item \textbf{\hyperref[sec:q4]{Question 4 --- Improve branch selection.}} Implement and compare at least four DPLL branching heuristics. The selection must include a literal-based rule, a rule that uses clause sizes, and a dynamic rule based on the current simplified formula.
+\item \textbf{\hyperref[sec:q5]{Question 5 --- Measure the heuristics.}} Instrument the solvers, compare their search effort and run time on varied SAT and UNSAT instances, and analyze whether the extra work of choosing branches pays off.
+\item \textbf{\hyperref[sec:q6]{Question 6 --- Provide the final solver interface.}} Offer both the basic \texttt{dpll} mode and an \texttt{optimized} mode through \texttt{sat.py}, using the prescribed SAT/UNSAT and optional model output format.
 \end{enumerate}

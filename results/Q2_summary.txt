@@ -1,0 +1,26 @@
+Reader
+  41 public files read without error
+  edge_no_clause_sat.cnf -> (3, [])
+  edge_empty_clause_unsat.cnf -> (2, [[1, 2], [], [-1]])
+  board of Figure 1: first lines ['p cnf 36 358', '-1 -2 0', '-1 -3 0'], V = 36, 358 clauses, first clauses [[-1, -2], [-1, -3]]
+  dpll_model true variables: [2, 10, 18, 21, 25, 35]
+
+Validation: 246 runs, limit 60 s
+  wrong answers (wrong status, invalid model or error): 0
+  solved in all runs by both versions: 37 of 41
+  not solved in every run: public-03.cnf, public-06.cnf, public-12.cnf, public-27.cnf
+
+Benchmark instances with a median above 1 s in a version, or not always solved
+  instance         status  dpll_model            dpll_status
+  public-03.cnf     UNSAT  0/3, timeout          0/3, timeout
+  public-06.cnf       SAT  0/3, timeout          1/3, 0.5 s
+  public-08.cnf     UNSAT  3/3, 1.8 s            3/3, 0.7 s
+  public-11.cnf       SAT  3/3, 36.8 s           3/3, 13.5 s
+  public-12.cnf       SAT  1/3, 7.1 s            1/3, 3.3 s
+  public-15.cnf     UNSAT  3/3, 1.9 s            3/3, 2.6 s
+  public-18.cnf       SAT  3/3, 21.0 s           3/3, 10.7 s
+  public-19.cnf       SAT  3/3, 2.1 s            3/3, 3.3 s
+  public-22.cnf     UNSAT  3/3, 3.0 s            3/3, 3.0 s
+  public-27.cnf       SAT  0/3, timeout          0/3, timeout
+  public-30.cnf     UNSAT  3/3, 3.5 s            3/3, 1.5 s
+  other benchmark instances: 19, largest median 0.50 s
