@@ -4,6 +4,7 @@ __pycache__/
 
 # LaTeX build files (the compiled report/main.pdf is kept)
 report/build/
+rapport/build/
 *.aux
 *.log
 *.out
@@ -17,3 +18,4 @@ report/build/
 
 # Tool state
 .claude/
+dist/
