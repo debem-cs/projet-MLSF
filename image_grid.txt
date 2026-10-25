@@ -1,0 +1,11 @@
+c Regions transcribed from the six-by-six Meowdoku screenshot.
+c A green, B turquoise, C pink, D blue, E mauve, F yellow.
+GRID 6 6
+ZONES A B C D E F
+
+A A A B B B
+A A A C C B
+A A A A D B
+A A D D D D
+E E E E D D
+E E E F F F

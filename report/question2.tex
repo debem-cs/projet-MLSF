@@ -1,0 +1,118 @@
+\section{Question 2: Reading DIMACS and implementing DPLL}
+
+\begin{center}
+\begin{tabular}{@{}p{6.2cm}p{10cm}@{}}
+\toprule
+File & Description\\
+\midrule
+\texttt{dimacs\_to\_pylist.py} & DIMACS reader. \texttt{read\_dimacs} returns the number of variables and the clauses as lists of signed integers, and checks the header, the variable range, the final \texttt{0} of each clause and the declared number of clauses.\\
+\texttt{sat.py} & DPLL solver: \texttt{simplify}, \texttt{unit\_literal}, \texttt{pure\_literal}, \texttt{choose\_literal} (random choice), \texttt{dpll\_status} (Algorithm~1) and \texttt{dpll\_model} (Algorithm~2), with a command-line entry point.\\
+\texttt{public-instances/instances/} & The 41 DIMACS files provided by the teachers: interface tests, edge cases and 30 benchmark instances (\texttt{public-01} to \texttt{public-30}).\\
+\texttt{public-instances/expected.json} & Expected SAT or UNSAT status of each instance.\\
+\texttt{public-instances/README.md} & The teachers' description of the instances.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{From the DIMACS file to Python data}
+
+A formula in conjunctive normal form is represented by a list of clauses, and a clause by a list of nonzero integers with the DIMACS convention: a positive integer $k$ is the variable $x_k$ and $-k$ is its negation. The outer list is read as a conjunction (AND) and each inner list as a disjunction (OR). For the board of Figure~\ref{fig:meowdoku-board}, whose DIMACS file is produced by the converter of Question~1, the file begins with
+\begin{verbatim}
+p cnf 36 358
+-1 -2 0
+-1 -3 0
+\end{verbatim}
+and is read as $V=36$ and a list of clauses beginning with \texttt{[[-1, -2], [-1, -3], ...]}. The final \texttt{0} of each line is not stored, since the end of the inner list already ends the clause. The reader (\texttt{read\_dimacs}) returns the pair formed by the number of variables and the list of clauses.
+
+\begin{pseudo}{Procedure: DIMACS file to Python data}
+\pinfo{\textbf{Input:} a DIMACS file. \textbf{Output:} the number of variables $V$ and the list $F$ of clauses.}
+\pline{0}{$V\leftarrow$ undefined; \quad $F\leftarrow$ empty list; \quad $C\leftarrow$ empty list}
+\pline{0}{\kw{for} each line of the file, cut into words}
+\pline{1}{\kw{if} the line is empty or its first word is \texttt{c} \kw{then} go to the next line}
+\pline{1}{\kw{if} $V$ is undefined \kw{then}}
+\pline{2}{the line must be \texttt{p cnf $N$ $M$}, with $N$ and $M$ non-negative integers; $V\leftarrow N$; go to the next line}
+\pline{1}{\kw{for} each word of the line}
+\pline{2}{the word must be an integer $x$}
+\pline{2}{\kw{if} $x=0$ \kw{then} append $C$ to $F$; \ $C\leftarrow$ empty list}
+\pline{2}{\kw{else if} $|x|>V$ \kw{then} reject the file}
+\pline{2}{\kw{else} append $x$ to $C$}
+\pline{0}{reject the file if there was no header line, if $C$ is not empty, or if $|F|\ne M$}
+\pline{0}{\kw{return} $(V,F)$}
+\end{pseudo}
+
+The list $C$ holds the clause being read. A clause may extend over several lines: words are accumulated in $C$ until a \texttt{0} is met. A file is rejected, with an error message, when the header is missing or malformed, when a literal is outside $1,\ldots,V$, when the last clause lacks its final \texttt{0}, or when the number of clauses read differs from the number declared in the header (line 11).
+
+The representation must keep two empty cases apart. A file without any clause, such as \texttt{edge\_\allowbreak no\_\allowbreak clause\_\allowbreak sat.cnf}, is read as the empty list \texttt{[]}: a formula with no clause. A line containing only \texttt{0}, as in \texttt{edge\_\allowbreak empty\_\allowbreak clause\_\allowbreak unsat.cnf}, is read as an empty inner list, so that file becomes \texttt{[[1, 2], [], [-1]]}. Thus \texttt{[]} is the absence of clauses, whereas \texttt{[[]]} is one clause with no literal. Both files are among the instances provided by the teachers.
+
+\subsection{The two versions of DPLL}
+
+The solver (\texttt{sat.py}) implements Algorithms~1 and~2 of the assignment. The procedures below are the model-producing version, Algorithm~2; \texttt{simplify} computes the formula $F[l\leftarrow1]$ defined in the assignment, and $\bar l$ denotes the literal opposite to $l$.
+
+\begin{pseudo}{Procedure Simplify($F,l$): the formula $F[l\leftarrow1]$}
+\pline{0}{$F'\leftarrow$ empty list}
+\pline{0}{\kw{for} each clause $C$ of $F$}
+\pline{1}{\kw{if} $l\notin C$ \kw{then} append $C\setminus\{\bar l\}$ to $F'$}
+\pline{0}{\kw{return} $F'$}
+\end{pseudo}
+
+\begin{pseudo}{Procedure DPLL($F$): returns a status and a valuation}
+\pline{0}{\kw{if} $F$ contains an empty clause \kw{then return} (UNSAT, $\emptyset$)}
+\pline{0}{\kw{if} $F$ contains no clause \kw{then return} (SAT, $\emptyset$)}
+\pline{0}{\kw{if} $F$ contains a unit clause $\{l\}$, or otherwise a pure literal $l$ \kw{then}}
+\pline{1}{$(s,v)\leftarrow$ DPLL(Simplify($F,l$))}
+\pline{1}{\kw{if} $s=$ SAT \kw{then return} (SAT, $v\cup\{l\}$) \kw{else return} (UNSAT, $\emptyset$)}
+\pline{0}{choose at random a variable $p$ of $F$ and a value $b\in\{1,0\}$; \ $l\leftarrow p$ if $b=1$, else $l\leftarrow\neg p$}
+\pline{0}{\kw{for} each $l'$ in $(l,\bar l)$}
+\pline{1}{$(s,v)\leftarrow$ DPLL(Simplify($F,l'$))}
+\pline{1}{\kw{if} $s=$ SAT \kw{then return} (SAT, $v\cup\{l'\}$)}
+\pline{0}{\kw{return} (UNSAT, $\emptyset$)}
+\end{pseudo}
+
+The function \texttt{dpll\_model} is this procedure. The function \texttt{dpll\_status} is Algorithm~1: the same procedure without the valuation, returning \texttt{True} or \texttt{False}. The program differs from the pseudocode of the assignment only by the following implementation choices.
+\begin{itemize}
+\item A valuation is a dictionary from variable numbers to Boolean values instead of a set of literals, and an unsatisfiable answer is \texttt{None}. An empty dictionary is a valid valuation, so the code tests \texttt{is None}.
+\item The unit clause used is the first one of the list. When there is none, the pure literal used is the one of smallest variable number, the positive literal first.
+\item \texttt{simplify} builds a new list of clauses and leaves $F$ unchanged. This is how a failed branch returns to the formula it started from.
+\item The valuation can omit variables that no remaining clause needs. Any value for them satisfies the original clauses, and the command-line interface gives them the value false.
+\item Each recursive call makes at least one assignment, so the depth can reach the number of variables. The program raises Python's recursion limit according to the number of variables and runs the search in a thread with a larger stack.
+\end{itemize}
+
+\subsection{Validation on the provided instances}
+
+\paragraph{Protocol.}
+The parser read all 41 provided CNF files (5 small interface tests, 6 edge cases and 30 benchmark instances). Each file was then solved three times by each version, \texttt{dpll\_status} and \texttt{dpll\_model}, with a limit of 60 seconds per run, which is the limit of the final competition. Three runs were performed since the branching choice is random. Every returned status was compared with \texttt{public-instances/expected.json}, and every returned model was checked against every clause of the original formula. Times are reported as the median over the runs that finished.
+
+\paragraph{Results.}
+No answer was wrong: every status matched the expected one, and every model satisfied all the clauses. Five instances were not solved in every run: \texttt{public-03} in no run, and \texttt{public-06}, \texttt{public-11}, \texttt{public-12} and \texttt{public-27} in some runs only. The other 36 instances were solved in all runs by both versions. Among the remaining 18 benchmark instances, the median time is below 0.5 s in both versions. Table~\ref{tab:q2-results} gives the 12 benchmark instances that take longer or are not solved in every run.
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}lrrcll@{}}
+\toprule
+Instance & Variables & Clauses & Status & \texttt{dpll\_model} & \texttt{dpll\_status}\\
+\midrule
+\texttt{public-03} & 63 & 168 & UNSAT & 0/3, timeout & 0/3, timeout\\
+\texttt{public-06} & 1363 & 3034 & SAT & 0/3, timeout & 2/3, 0.6 s\\
+\texttt{public-08} & 100 & 900 & UNSAT & 3/3, 1.1 s & 3/3, 0.8 s\\
+\texttt{public-11} & 729 & 21844 & SAT & 3/3, 12.1 s & 2/3, 6.3 s\\
+\texttt{public-12} & 522 & 11636 & SAT & 0/3, timeout & 2/3, 28.2 s\\
+\texttt{public-15} & 100 & 850 & UNSAT & 3/3, 2.0 s & 3/3, 1.2 s\\
+\texttt{public-17} & 100 & 850 & SAT & 3/3, 0.4 s & 3/3, 1.3 s\\
+\texttt{public-18} & 459 & 7054 & SAT & 3/3, 31.2 s & 3/3, 49.9 s\\
+\texttt{public-19} & 729 & 22060 & SAT & 3/3, 2.1 s & 3/3, 2.2 s\\
+\texttt{public-22} & 100 & 850 & UNSAT & 3/3, 3.4 s & 3/3, 2.9 s\\
+\texttt{public-27} & 181 & 3151 & SAT & 1/3, 43.8 s & 2/3, 6.8 s\\
+\texttt{public-30} & 100 & 850 & UNSAT & 3/3, 1.3 s & 3/3, 3.1 s\\
+\bottomrule
+\end{tabular}
+\caption{Benchmark instances whose median time exceeds 1 s in at least one version, or that are not solved in every run. A cell reads ``$k$/3, $t$'': $k$ is the number of the three runs that finished within 60 s, and $t$ is the \emph{median} of the times of these $k$ runs.}
+\label{tab:q2-results}
+\end{table}
+
+\subsection{Performance}
+
+\begin{itemize}
+\item \emph{The random choice makes the time unstable.} \texttt{public-12} was solved by \texttt{dpll\_status} in 4.8 s and in 51.7 s in two runs, and exceeded 60 s in the third; \texttt{public-27} behaves similarly. Differences between the two versions, such as 31 s against 50 s on \texttt{public-18}, are of the same order as this variation, so these measurements do not show that one version is faster than the other. Both use the same search.
+\item \emph{\texttt{public-03} is out of reach for this baseline.} It is unsatisfiable, so the whole search tree must be explored, and the random choice of branches does not help. It has only 63 variables but no run finished within 60 s. The teachers' README states that some instances are noticeably hard for a basic DPLL.
+\item \emph{\texttt{public-06} needs deep recursion.} Both functions are recursive, and each assignment adds one level, so the depth can reach the number of variables. This instance has 1363 variables, more than Python's default limit of 1000 nested calls, and an earlier version of \texttt{sat.py} stopped on it with a \texttt{RecursionError} after about 0.6 s. With the limit raised, it behaves like \texttt{public-12} and \texttt{public-27}: when the random choices are favorable it is solved in about a second, and otherwise it exceeds 60 s.
+\item \emph{The cost of a step grows with the formula.} \texttt{simplify} builds a new copy of the whole remaining formula for every assignment, including forced ones. The two instances with about 22\,000 clauses, \texttt{public-11} and \texttt{public-19}, already need several seconds.
+\end{itemize}

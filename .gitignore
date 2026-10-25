@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# LaTeX build files (the compiled report/main.pdf is kept)
+report/build/
+*.aux
+*.log
+*.out
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# Google Drive sync conflicts
+*.conflict*
+
+# Tool state
+.claude/

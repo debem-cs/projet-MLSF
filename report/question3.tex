@@ -1,0 +1,96 @@
+\section{Question 3: Producing a Meowdoku solution file}
+
+\begin{center}
+\begin{tabular}{@{}p{6.2cm}p{10cm}@{}}
+\toprule
+File & Description\\
+\midrule
+\texttt{solve\_meowdoku.py} & Program of this question: \texttt{solve\_grid} chains the steps, \texttt{cats\_from\_model} turns a model into cat positions, \texttt{check\_solution} verifies the placement, and \texttt{format\_solution} builds the two descriptions of the solution.\\
+\texttt{image\_grid.txt} & Example input, the board of Figure~\ref{fig:meowdoku-board}.\\
+\texttt{meowdoku\_to\_dimacs.py} & \texttt{read\_grid}, \texttt{encode\_grid} and \texttt{write\_dimacs} (Question~1).\\
+\texttt{dimacs\_to\_pylist.py} & \texttt{read\_dimacs} (Question~2).\\
+\texttt{sat.py} & \texttt{dpll\_model}, and \texttt{run\_deep}, which runs the search with the recursion limit and stack that DPLL needs (Question~2).\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{From a grid file to a solution file}
+
+The program takes a grid file and a name for the result file. It does not search for the cats itself: it chains the converter of Question~1 and the solver of Question~2, then translates the answer back into the terms of the game.
+
+\begin{pseudo}{Procedure: solve a Meowdoku grid file}
+\pinfo{\textbf{Input:} a grid file. \textbf{Output:} a solution file.}
+\pline{0}{read the grid: $N$, $M$, the region names and $\operatorname{reg}(i,j)$}
+\pline{0}{$F\leftarrow$ the clauses of the grid}
+\pline{0}{write $F$ to a temporary DIMACS file, then read this file back as a list of clauses}
+\pline{0}{$(s,v)\leftarrow$ DPLL($F$)}
+\pline{0}{\kw{if} $s=$ UNSAT \kw{then} report that the grid has no solution and stop}
+\pline{0}{$P\leftarrow\bigl\{(\lfloor (t-1)/M\rfloor+1,\ ((t-1)\bmod M)+1)\ \big|\ \text{variable } t \text{ is true in } v\bigr\}$}
+\pline{0}{\kw{if} Check($P$) reports a violation \kw{then} report it and stop}
+\pline{0}{write the solution file: the text of the grid file; a blank line; for each region $r$, in the order of \texttt{ZONES}, the line \texttt{$r$ $i$ $j$} where $(i,j)$ is the cat of $r$; a blank line; then $N$ lines of $M$ symbols, \texttt{*} for a cat and \texttt{.} elsewhere}
+\end{pseudo}
+
+Lines 1 and 2 are the converter of Question~1. The assignment asks for the search to go through a DIMACS file, so line 3 writes the formula to a temporary file and reads it back with the reader of Question~2; the file is deleted afterwards, and no CNF file is left in the project. Line 4 is the solver of Question~2. A board of size $N\times M$ has $NM$ variables, so the recursion can be deep; the search runs with the same deep-recursion setting as \texttt{sat.py}.
+
+Line 6 inverts the numbering $\operatorname{id}(i,j)=(i-1)M+j$ of Question~1. For example, on the board of Figure~\ref{fig:meowdoku-board}, variable $t=35$ gives $i=\lfloor34/6\rfloor+1=6$ and $j=(34\bmod6)+1=5$, the yellow cell $(6,5)$. Only variables that are true are cats; a variable left out of the partial valuation is false, as in Question~2. The region of each cat is read from $\operatorname{reg}(i,j)$, which gives the association between a region and its cat. Check guarantees that there is exactly one cat per region, so line 8 writes exactly one line per region. The output follows Figure~2 of the assignment: a copy of the input, then the cat of each region as a row and a column numbered from 1, then the marked grid.
+
+\subsection{Checking the solution}
+
+The assignment recommends checking systematically that the placement is legal. The check uses only the grid and the cat positions, never the CNF formula, so it detects an error wherever it comes from: the encoding, the translation of variables into cells, or the solver. If it reports a violation, the program stops with an error and writes no file.
+
+\begin{pseudo}{Procedure Check($P$): the violations of the rules by the cats $P$}
+\pline{0}{\kw{for} each region $r$}
+\pline{1}{\kw{if} the number of cats $(i,j)$ of $P$ with $\operatorname{reg}(i,j)=r$ is not 1 \kw{then} report $r$}
+\pline{0}{\kw{for} each pair of distinct cats $(i,j)$ and $(i',j')$ of $P$}
+\pline{1}{\kw{if} $i=i'$ \kw{then} report a shared row}
+\pline{1}{\kw{if} $j=j'$ \kw{then} report a shared column}
+\pline{1}{\kw{if} $|i-i'|\le1$ and $|j-j'|\le1$ \kw{then} report two cats that touch}
+\pline{0}{\kw{return} the reports}
+\end{pseudo}
+
+Line 6 is the eight-neighbour rule of the game: it covers horizontal, vertical and diagonal contact. A placement is legal exactly when no violation is reported.
+
+\subsection{Tests}
+
+\begin{itemize}
+\item \emph{Grid of the assignment.} On the grid of Figure~1b of the assignment, the program writes exactly the solution of Figure~2: \texttt{A 3 2}, \texttt{B 2 5}, \texttt{C 1 3}, \texttt{D 5 6}, \texttt{E 4 4}, \texttt{F 6 1}, and the corresponding marked grid.
+\item \emph{Board of Figure~\ref{fig:meowdoku-board}.} The solution of this board is unique, so the program must find it. The part of the result file that follows the copy of the input is
+\begin{verbatim}
+A 1 2
+B 3 6
+C 2 4
+D 4 3
+E 5 1
+F 6 5
+
+. * . . . .
+. . . * . .
+. . . . . *
+. . * . . .
+* . . . . .
+. . . . * .
+\end{verbatim}
+\item \emph{Generated boards.} Boards from the generator of Question~1 were solved with seeds 1, 2 and 3, one run each, and every solution passed the check. The table below gives the times, which include about 0.04 s of interpreter start-up.
+\item \emph{The check itself.} Wrong placements were given to \texttt{check\_solution}: two cats in one row, two cats touching diagonally, and a cat moved into an occupied column. Each time the corresponding violations were reported, and the legal placement of Figure~\ref{fig:meowdoku-board} gave none.
+\item \emph{A grid without solution.} For a $2\times2$ grid with regions \texttt{A A} and \texttt{B B}, the program reports that the grid has no solution, exits with status 1 and writes no file.
+\end{itemize}
+
+\noindent The table gives the time to solve generated $n\times n$ boards with $n$ regions, for seeds 1, 2 and 3. ``Timeout'' means no answer within 60 s.
+\begin{center}
+\begin{tabular}{@{}rrccc@{}}
+\toprule
+$n$ & Variables & Seed 1 & Seed 2 & Seed 3\\
+\midrule
+4 & 16 & 0.05 s & 0.05 s & 0.04 s\\
+6 & 36 & 0.05 s & 0.04 s & 0.04 s\\
+8 & 64 & 0.05 s & 0.05 s & 0.05 s\\
+10 & 100 & 0.07 s & 0.05 s & 0.06 s\\
+12 & 144 & 0.07 s & 0.08 s & 0.08 s\\
+15 & 225 & 0.14 s & 0.14 s & 0.13 s\\
+20 & 400 & timeout & 0.93 s & 13.2 s\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+The boards up to $n=15$ are solved almost instantly. At $n=20$ the time depends strongly on the board and on the random choices of the solver of Question~2: one board was not solved within 60 s.

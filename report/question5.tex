@@ -1,0 +1,70 @@
+\section{Question 5: Measuring heuristic performance}
+
+\begin{center}
+\begin{tabular}{@{}p{6.2cm}p{10cm}@{}}
+\toprule
+File & Description\\
+\midrule
+\texttt{benchmark.py} & Measurement program: \texttt{generate\_instances} writes the Meowdoku instances, \texttt{run\_once} solves one instance with one heuristic and returns the counters, and \texttt{run\_all} runs every heuristic on every instance, each run in its own process.\\
+\texttt{sat.py} & \texttt{Stats}, the counters filled by \texttt{dpll\_h}: decisions, backtracks and time spent choosing branches.\\
+\texttt{heuristics.py} & The heuristics compared (Question~4).\\
+\texttt{meowdoku-instances/} & The 18 Meowdoku formulas generated for the measurements, and \texttt{expected.json}, which gives their status.\\
+\texttt{public-instances/instances/} & The 30 benchmark instances of the teachers, 19 SAT and 11 UNSAT.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Protocol}
+
+\paragraph{Instances.} We used the 30 benchmark instances of the teachers, and 18 formulas from Meowdoku boards. Nine are satisfiable: boards of size $n=10$, 15 and 20, with seeds 1, 2 and 3, produced by the generator of Question~1. Nine are unsatisfiable: boards of size $n=8$, 9 and 10, with the same seeds, in which three cells without a cat form a new region. There are then $n+1$ regions on $n$ rows, and $n+1$ cats cannot be placed with at most one per row.
+
+\paragraph{Heuristics and criteria.} The eight configurations are $H_0$, the random choice of Question~2, and the seven of Question~4. Each pair of instance and heuristic was run once, in its own process, with a limit of 60 seconds, ten runs at a time on a 16-core machine. $H_0$ is random, so its results are one sample. We measure three criteria: the number of decisions, that is the number of executions of the choice of a branch (line 17 of Algorithm~3); the CPU time of the process; and the share of this time spent computing the heuristic. The number of backtracks, which counts the executions of the second branch (line 21), is, in total, at least 93\% of the number of decisions for every heuristic and equal to it on unsatisfiable instances, so it adds nothing to the number of decisions and is not reported. Every answer was checked: the status against the expected one, and every model against all the clauses. None of the 384 runs gave a wrong answer.
+
+\subsection{Results}
+
+\begin{center}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+ & Public SAT & Public UNSAT & Meowdoku SAT & Meowdoku UNSAT & Total\\
+ & (19) & (11) & (9) & (9) & (48)\\
+\midrule
+$H_0$ & 18 & 10 & 9 & 9 & 46\\
+H1 & 18 & 10 & 8 & 9 & 45\\
+H3s & 18 & 10 & 8 & 9 & 45\\
+H3d & 18 & 10 & 9 & 9 & 46\\
+H5s & 18 & 10 & 7 & 9 & 44\\
+H5d & 19 & 10 & 9 & 9 & \textbf{47}\\
+H7s & 17 & 10 & 8 & 9 & 44\\
+H7d & 17 & 10 & 9 & 9 & 45\\
+\bottomrule
+\end{tabular}
+\end{center}
+The table above gives the number of instances solved within 60 s. Instance \texttt{public-03} was not solved by any heuristic. The other unsolved instances are \texttt{public-12} (by $H_0$, H1, H3s, H5s and H7s), \texttt{public-06} (H7s and H7d), \texttt{public-11} (H3d and H7d), and the boards \texttt{sat-n20-s1} (H3s, H5s and H7s) and \texttt{sat-n20-s2} (H1 and H5s).
+
+The comparison of the effort is made on the instances solved by all the heuristics, which are 16 of the 19 public SAT instances, 10 of 11 public UNSAT, 7 of 9 Meowdoku SAT and all 9 Meowdoku UNSAT. For each group, the table gives the total number of decisions, in thousands, and the total CPU time in seconds. The last column is the share of the CPU time spent computing the heuristic, over the four groups.
+\begin{center}
+\small
+\begin{tabular}{@{}lrrrrrrrrr@{}}
+\toprule
+ & \multicolumn{2}{c}{Public SAT} & \multicolumn{2}{c}{Public UNSAT} & \multicolumn{2}{c}{Meowdoku SAT} & \multicolumn{2}{c}{Meowdoku UNSAT} & Heuristic\\
+ & Dec. & CPU & Dec. & CPU & Dec. & CPU & Dec. & CPU & share\\
+\midrule
+$H_0$ & 31.7k & 88.3 s & 7.9k & 9.8 s & 35.8k & 24.1 s & 24.5k & 14.1 s & 2.2\%\\
+H1 & 6.9k & 54.9 s & 5.2k & 8.7 s & 39.1k & 27.1 s & 1.4k & 1.9 s & 2.2\%\\
+H3s & 24.1k & 30.8 s & 3.4k & 5.7 s & 33.2k & 15.2 s & 33.0k & 16.9 s & 3.3\%\\
+H3d & 28.0k & 48.9 s & 2.3k & 3.6 s & 2.4k & 2.7 s & 48.4k & 15.0 s & 8.8\%\\
+H5s & 6.8k & 31.5 s & 1.2k & 0.5 s & 33.2k & 17.6 s & 33.0k & 17.9 s & 3.1\%\\
+H5d & 57.9k & 74.0 s & 1.0k & 0.5 s & 2.4k & 3.1 s & 48.4k & 16.6 s & 10.7\%\\
+H7s & 5.3k & 25.9 s & 1.2k & 0.6 s & 33.2k & 16.9 s & 33.0k & 15.3 s & 3.3\%\\
+H7d & 18.4k & 61.1 s & 1.0k & 0.6 s & 2.4k & 3.5 s & 48.4k & 15.5 s & 10.0\%\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Analysis}
+
+\paragraph{Are the results in agreement with our expectations?} Partly. We expected the heuristics to beat the random choice, the dynamic versions to beat the static ones, and the heuristics based on clause sizes to beat the simple ones. The first holds on the public UNSAT instances, where H5 and H7 need about 1\,000 decisions against 7\,900 for $H_0$, and on the satisfiable Meowdoku boards for the dynamic versions. It fails on the unsatisfiable Meowdoku boards, where every frequency-based heuristic needs more decisions than $H_0$ (33\,000 to 48\,400 against 24\,500), and only H1 does much better, with 1\,400. The second expectation fails on the public SAT instances, where H5d needs 57\,900 decisions against 6\,800 for H5s. The third holds only in part: on the public UNSAT instances H5 and H7 are far better than H1 and H3, and H7s is the fastest static version on the public SAT ones, but H3d is faster than H5d and H7d there.
+
+\paragraph{How much does a heuristic improve the initial DPLL?} The gain depends on the family of instances. On the public UNSAT instances, H5 and H7 divide the CPU time by about 16 to 20 (0.5 to 0.6 s against 9.8 s). On the public SAT instances, H7s takes 25.9 s against 88.3 s for $H_0$. On the satisfiable Meowdoku boards, the dynamic versions take 2.7 to 3.5 s against 24.1 s. In the number of instances solved, the gain is small: 47 for H5d against 46 for $H_0$. Since $H_0$ is a single random run, these differences are indicative.
+
+\paragraph{Does the dynamic recomputation pay for its cost?} The heuristic accounts for 9 to 11\% of the CPU time in the dynamic versions, against about 3\% in the static ones. The recomputation pays on the satisfiable Meowdoku boards: the dynamic versions need 2\,400 decisions against 33\,000 and are about five times faster. They also solve all nine boards, which no static version does, and \texttt{public-12}, which neither the static versions nor $H_0$ solve, so they are more robust. It does not pay on the public SAT instances, where H3d, H5d and H7d are slower than their static versions (48.9, 74.0 and 61.1 s against 30.8, 31.5 and 25.9 s), nor on the UNSAT instances, where the times are about equal. No heuristic is the best on all families. By the number of instances solved, which is the first criterion of the final ranking, the best is H5d.

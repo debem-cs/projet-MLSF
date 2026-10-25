@@ -1,0 +1,20 @@
+{
+ "sat-n10-s1.cnf": "SAT",
+ "sat-n10-s2.cnf": "SAT",
+ "sat-n10-s3.cnf": "SAT",
+ "sat-n15-s1.cnf": "SAT",
+ "sat-n15-s2.cnf": "SAT",
+ "sat-n15-s3.cnf": "SAT",
+ "sat-n20-s1.cnf": "SAT",
+ "sat-n20-s2.cnf": "SAT",
+ "sat-n20-s3.cnf": "SAT",
+ "unsat-n8-s1.cnf": "UNSAT",
+ "unsat-n8-s2.cnf": "UNSAT",
+ "unsat-n8-s3.cnf": "UNSAT",
+ "unsat-n9-s1.cnf": "UNSAT",
+ "unsat-n9-s2.cnf": "UNSAT",
+ "unsat-n9-s3.cnf": "UNSAT",
+ "unsat-n10-s1.cnf": "UNSAT",
+ "unsat-n10-s2.cnf": "UNSAT",
+ "unsat-n10-s3.cnf": "UNSAT"
+}
